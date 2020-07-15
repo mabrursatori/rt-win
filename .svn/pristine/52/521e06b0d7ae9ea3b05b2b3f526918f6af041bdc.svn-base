@@ -1,0 +1,194 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:rtwin">
+    <Style x:Key="Background" TargetType="Grid">
+        <Setter Property="Background" Value="White" />
+    </Style>
+
+
+
+    <Style x:Key="Navbar" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="1,0">
+                    <GradientStop Color="#FF00E5FF"/>
+                    <GradientStop Color="#FF0014FF" Offset="0.651"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MenuNavbar" TargetType="Menu">
+        <Setter Property="Background" Value="#FF0014FF" />
+        <Setter Property="Foreground" Value="LightGray" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+    
+
+    <DropShadowEffect x:Key="DropShadow" BlurRadius="20" Direction="315" ShadowDepth="5" Color="Gray"/>
+    <Style x:Key="Rectangle" TargetType="Rectangle">
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="1,0">
+                    <GradientStop Color="#FF00E5FF"/>
+                    <GradientStop Color="#FF0014FF" Offset="0.651"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RadiusX" Value="20" />
+        <Setter Property="RadiusY" Value="20" />
+        <Setter Property="Effect" Value="{StaticResource DropShadow}" />
+    </Style>
+
+  
+    <Style x:Key="NotifPerHari" TargetType="Rectangle">
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="1,0">
+                    <GradientStop Color="#FEB692"/>
+                    <GradientStop Color="#EA5455" Offset="0.651"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RadiusX" Value="20" />
+        <Setter Property="RadiusY" Value="20" />
+        <Setter Property="Effect" Value="{StaticResource DropShadow}" />
+    </Style>
+
+    <Style x:Key="NotifPerJam" TargetType="Rectangle">
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="1,0">
+                    <GradientStop Color="#81FBB8"/>
+                    <GradientStop Color="#28C76F" Offset="0.651"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RadiusX" Value="20" />
+        <Setter Property="RadiusY" Value="20" />
+        <Setter Property="Effect" Value="{StaticResource DropShadow}" />
+    </Style>
+
+    <Style x:Key="NotifLembur" TargetType="Rectangle">
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="1,0">
+                    <GradientStop Color="#FF96F9"/>
+                    <GradientStop Color="#C32BAC" Offset="0.651"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RadiusX" Value="20" />
+        <Setter Property="RadiusY" Value="20" />
+        <Setter Property="Effect" Value="{StaticResource DropShadow}" />
+    </Style>
+
+    <DropShadowEffect x:Key="DropShadowView" BlurRadius="20" Direction="315" ShadowDepth="5"/>
+    <Style x:Key="RectangleView" TargetType="Rectangle">
+        <Setter Property="Fill" Value="White" />
+        <Setter Property="RadiusX" Value="20" />
+        <Setter Property="RadiusY" Value="20" />
+        <Setter Property="Effect" Value="{StaticResource DropShadowView}" />
+    </Style>
+
+    <Style x:Key="ButtonCircleHome" TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionDarkButton}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="1,0">
+                    <GradientStop Color="#FF00E5FF"/>
+                    <GradientStop Color="#FF0014FF" Offset="0.651"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="1,0">
+                    <GradientStop Color="#FF00E5FF"/>
+                    <GradientStop Color="#FF0014FF" Offset="0.651"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="LightGray" />
+    </Style>
+
+    <Style x:Key="ButtonCircle" TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+        <Setter Property="Background" Value="#FF0014FF" />
+        <Setter Property="BorderBrush" Value="#FF0014FF" />
+        <Setter Property="Foreground" Value="LightGray" />
+    </Style>
+
+    <Style x:Key="ButtonPagination" TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+        <Setter Property="Background" Value="#7b1fa2" />
+        <Setter Property="BorderBrush" Value="#7b1fa2" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="GreenButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+        <Setter Property="Background" Value="Green" />
+        <Setter Property="BorderBrush" Value="Green" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="RedButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+        <Setter Property="Background" Value="Red" />
+        <Setter Property="BorderBrush" Value="Red" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="ButtonEdit" TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionMiniLightButton}">
+        <Setter Property="Background" Value="Green" />
+        <Setter Property="BorderBrush" Value="Green" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="ButtonDelete" TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionMiniLightButton}">
+        <Setter Property="Background" Value="Red" />
+        <Setter Property="BorderBrush" Value="Red" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="TextBlock" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="LightGray" />
+    </Style>
+
+    <Style x:Key="TextHeader" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#242444" />
+    </Style>
+
+    <Style x:Key="Separator" TargetType="Separator">
+        <Setter Property="Background" Value="#242444" />
+    </Style>
+
+    <Style x:Key="ComboBox" TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignFloatingHintComboBox}">
+        <Setter Property="Background" Value="#FF2D2D30" />
+        <Setter Property="Foreground" Value="LightGray" />
+        <Setter Property="BorderBrush" Value="LightGray" />
+    </Style>
+
+    <Style x:Key="Opacity" TargetType="Grid">
+        <Setter Property="Background" Value="Black" />
+        <Setter Property="Opacity" Value="0" />
+    </Style>
+
+
+    <Style x:Key="RectangelLogin" TargetType="Rectangle">
+        <Setter Property="Fill" Value="White" />
+    </Style>
+
+    <Style x:Key="TextBoxLogin" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="CaretBrush" Value="Gray" />
+     
+        <Setter Property="SelectionBrush" Value="Gray" />
+    </Style>
+
+    <Style x:Key="PasswordBoxLogin" TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}">
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="CaretBrush" Value="Gray" />
+
+        <Setter Property="SelectionBrush" Value="Gray" />
+    </Style>
+
+
+</ResourceDictionary>

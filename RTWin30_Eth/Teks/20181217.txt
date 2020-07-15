@@ -1,0 +1,8 @@
+"0000000014","992000020","Jajang Zaenudin","15:09:14","17/12/2018","Belum saatnya pulang","0"
+"0000000003","971606004","Tonton Maulia","15:09:38","17/12/2018","Terlambat masuk","0"
+"0000000003","971606004","Tonton Maulia","15:09:42","17/12/2018","Belum saatnya pulang","0"
+"0000000003","971606004","Tonton Maulia","15:09:48","17/12/2018","Belum saatnya pulang","0"
+"0000000014","992000020","Jajang Zaenudin","15:10:00","17/12/2018","Belum saatnya pulang","0"
+"0000000014","992000020","Jajang Zaenudin","15:10:08","17/12/2018","Belum saatnya pulang","0"
+"0000000014","992000020","Jajang Zaenudin","15:10:14","17/12/2018","Belum saatnya pulang","0"
+"0000000001","970000001","Sutopo Haditoyo","15:10:36","17/12/2018","Terlambat masuk","0"

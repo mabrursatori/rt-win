@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="rtwin.View.master.timecard.FormTimeCardDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:rtwin.View.master.timecard"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="370" d:DesignWidth="300">
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="1050" Height="523" Style="{StaticResource RectangleView}"/>
+        <materialDesign:DialogHost x:Name="dialogAlert" Margin="0,0,20,0"
+  VerticalAlignment="Top">
+            <materialDesign:DialogHost.DialogContent>
+                <Frame x:Name="contentAlert"  NavigationUIVisibility="Hidden" Width="400px"></Frame>
+            </materialDesign:DialogHost.DialogContent>
+            <GroupBox x:Name="gbTitel" Header="Tambah Data Waktu Kerja Detail" Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" materialDesign:ShadowAssist.ShadowDepth="Depth3"  BorderThickness="0">
+                <Grid >
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel x:Name="containerForm" Grid.Row="0" Orientation="Vertical" VerticalAlignment="Top"   >
+                        <TextBlock x:Name="exception"></TextBlock>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" Width="100" Grid.Column="0" VerticalAlignment="Center" >Kode Range</TextBlock>
+
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <ComboBox x:Name="cmbKodeRange"  SelectedValuePath="Content" Margin="10,10,10,0"   Width="200" >
+                                </ComboBox>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" Width="100" Grid.Column="0" VerticalAlignment="Center" >Nama Cabang</TextBlock>
+
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <ComboBox x:Name="cmbKodeDepartemen"  SelectedValuePath="Content" Margin="10,10,10,0"  materialDesign:HintAssist.Hint="Nama Cabang" Width="200"></ComboBox>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" Width="100" Grid.Column="0" VerticalAlignment="Center" >Detail</TextBlock>
+
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <TextBox Grid.Column="1"  x:Name="detail"   Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            </StackPanel>
+
+                        </Grid>
+                       
+
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Button x:Name="btnsave" Click="Btnsave_Click" Style="{DynamicResource GreenButton}" Width="70" >
+                            Save
+                        </Button>
+                        <Button x:Name="btnClose" Margin="10" Click="BtnClose_Click" Style="{DynamicResource RedButton}"  Width="70" >
+                            Close
+                        </Button>
+                        <StackPanel Margin="0,10,0,0" Orientation="Horizontal" x:Name="lodongSave"  Visibility="Hidden" >
+                            <materialDesign:Card UniformCornerRadius="14" Padding="4"  >
+                                <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Value="50" IsIndeterminate="True" />
+                            </materialDesign:Card>
+
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+        </materialDesign:DialogHost>
+    </Grid>
+</UserControl>

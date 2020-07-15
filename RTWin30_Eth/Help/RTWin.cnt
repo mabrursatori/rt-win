@@ -1,0 +1,66 @@
+; This contents file was created with HelpScribble 3.5.6
+; Registered to: SiEGE
+
+:BASE RTWin.hlp
+:TITLE RTWin 3.0 Profesional
+1 Pendahuluan
+2 Gambaran Umum=Scribble10
+2 Kebutuhan
+3 Pemakai=Scribble85>judul
+3 Konfigurasi =Scribble60>judul
+2 Persiapan
+3 Instalasi=Scribble112
+3 Registrasi Software=Scribble14
+3 Pemasukkan Data Perusahaan=Scribble15
+3 Pendaftaran Pegawai=Scribble19
+1 Penjelasan Menu
+2 Struktur Menu=Scribble36
+2 Kegunaan Masing-Masing Menu
+3 Menu File=Scribble22
+3 Menu Transaksi=Scribble34
+3 Menu Laporan=Scribble28
+3 Menu Utilitas=Scribble25
+3 Menu Help=Scribble26
+1 Memulai Program
+2 Memulai Program=Scribble16
+1 Menjalankan Program
+2 Menu File
+3 Tabel
+4 Batas Waktu Kerja=Scribble23
+4 Pola Jadwal=Scribble13
+4 Hari Libur=Scribble11
+4 Jenis Ijin=Scribble12
+3 Unit Kerja=Scribble17
+3 Pegawai=Scribble18
+3 Keluar=Scribble20
+2 Menu Transaksi
+3 Kehadiran Manual=Scribble38
+3 Tidak hadir=Scribble45
+3 Ubah Jadwal=Scribble46
+3 Lembur=Scribble48
+3 Pesan=Scribble54
+2 Menu Laporan
+3 Laporan Harian=Scribble57
+3 Laporan Periode=Scribble58
+3 Data Master=Scribble59
+3 Laporan Disiplin=Scribble62
+3 Grafik Kecakapan=Scribble61
+2 Menu Utilitas
+3 Backup Restore=Scribble73
+3 Hapus Pegawai Permanen=Scribble79
+3 Transfer=Scribble82
+3 Pemakai & Otoritas=Scribble83
+3 Ganti Password=Scribble84
+3 Menu Operator=Scribble86
+3 Aktifitas Pemakai=Scribble98
+3 Monitor Data=Scribble104
+3 Aktifitas Real Time=Scribble107
+3 Setup=Scribble108
+3 Option=Scribble109
+2 Menu Help
+3 Contents=Scribble24
+3 Sistem Info=Scribble29
+3 About=Scribble27
+2 Lain Lain
+3 Telnet Server=Scribble111
+3 Khusus Mandiri=Scribble21

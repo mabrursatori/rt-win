@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace rtwin.Model
+{
+    class dataMonthlyReport
+    {
+        public string NIP { set; get; }
+        public string NAMA { set; get; }
+        public string TGL_MASUK { set; get; }
+        public string JAM_AWAL { set; get; }
+        public string JAM_AKHIR { set; get; }
+        public string JAM_MASUK { set; get; }
+        public string JAM_KELUAR { set; get; }
+        public string TERLAMBAT { set; get; }
+        public string CEPAT_PULANG { set; get; }
+        public string KETERANGAN { set; get; }
+        public string UANG_MAKAN { set; get; }
+        public string PERSEN_POTONGAN { set; get; }
+        public string TIPE_POTONGAN { set; get; }
+    }
+
+    class filterBulan
+    {
+        public string angkaBulan { set; get; }
+        public string namaBulan { set; get; }
+        public string jumlahHari { set; get; }
+    }
+
+    class dataFilter
+    {
+        public List<dataFilterLaporan> rows { set; get; }
+
+    }
+    class dataFilterLaporan
+    {
+        public string NIP { set; get; }
+        public string KODE_DEPUTI { set; get; }
+        public string KODE_BIRO { set; get; }
+        public string KODE_BAGIAN { set; get; }
+        public string KODE_SUBBAGIAN { set; get; }
+        public string KODE_JABATAN { set; get; }
+        public string KODE_GOLONGAN { set; get; }
+        public string KODE_GRADE { set; get; }
+        public string KODE_ESELON { set; get; }
+        public string KODE_STATUS_PEGAWAI { set; get; }
+
+    }
+}

@@ -1,0 +1,807 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3734384E-5DC1-413F-BACB-CFC0D9F8AFB1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>rtwin</RootNamespace>
+    <AssemblyName>rtwin</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetProjects.Input.Toolkit, Version=6.0.0.0, Culture=neutral, PublicKeyToken=79778c5f2eed289b, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetProjects.Input.Toolkit.6.0.68\lib\net40\DotNetProjects.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Dragablz, Version=0.0.3.203, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dragablz.0.0.3.203\lib\net45\Dragablz.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignExtensions, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignExtensions.2.7.0\lib\net45\MaterialDesignExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Sqlite, Version=3.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Sqlite.Core.3.0.1\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1358.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.3.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1358.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1358.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=4.0.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.0.7\lib\net451\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=2.0.0.581, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.2.0.0\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPF.Bootstrap, Version=0.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bootstrap.Wpf.0.0.9\lib\net45\WPF.Bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="WpfAnimatedGif, Version=1.4.18.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.18\lib\net\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+    <Reference Include="WpfAutoComplete">
+      <HintPath>..\..\..\..\..\WpfAutoComplete.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="dataQuery\queryBagian.cs" />
+    <Compile Include="dataQuery\queryBiro.cs" />
+    <Compile Include="dataQuery\queryCabang.cs" />
+    <Compile Include="dataQuery\queryDeputi.cs" />
+    <Compile Include="dataQuery\queryEselon.cs" />
+    <Compile Include="dataQuery\queryGolongan.cs" />
+    <Compile Include="dataQuery\queryGrid.cs" />
+    <Compile Include="dataQuery\queryIjin.cs" />
+    <Compile Include="dataQuery\queryIjinHari.cs" />
+    <Compile Include="dataQuery\queryIjinPerJam.cs" />
+    <Compile Include="dataQuery\queryJabatan.cs" />
+    <Compile Include="dataQuery\queryJenisLaporan.cs" />
+    <Compile Include="dataQuery\queryKaryawan.cs" />
+    <Compile Include="dataQuery\queryLibur.cs" />
+    <Compile Include="dataQuery\queryManual.cs" />
+    <Compile Include="dataQuery\queryMonthlyReporting.cs" />
+    <Compile Include="dataQuery\queryNotice.cs" />
+    <Compile Include="dataQuery\queryPaarameterLembur.cs" />
+    <Compile Include="dataQuery\queryPolaKolektif.cs" />
+    <Compile Include="dataQuery\querySaldoCuti.cs" />
+    <Compile Include="dataQuery\queryShift.cs" />
+    <Compile Include="dataQuery\queryStatusPegawai.cs" />
+    <Compile Include="dataQuery\querySubBagian.cs" />
+    <Compile Include="dataQuery\queryUnit.cs" />
+    <Compile Include="DataRealDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataRealDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="lib\AriLib.cs" />
+    <Compile Include="lib\formValidate.cs" />
+    <Compile Include="lib\Message.cs" />
+    <Compile Include="lib\query.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\comboBoxTemplate.cs" />
+    <Compile Include="Model\dataBagian.cs" />
+    <Compile Include="Model\dataBiro.cs" />
+    <Compile Include="Model\dataDeputi.cs" />
+    <Compile Include="Model\dataEselon.cs" />
+    <Compile Include="Model\dataFaktorPengali.cs" />
+    <Compile Include="Model\dataGolongan.cs" />
+    <Compile Include="Model\dataGrade.cs" />
+    <Compile Include="Model\dataIjin.cs" />
+    <Compile Include="Model\dataIjinHari.cs" />
+    <Compile Include="Model\DataIjinPerJam.cs" />
+    <Compile Include="Model\dataJabatan.cs" />
+    <Compile Include="Model\dataLibur.cs" />
+    <Compile Include="Model\dataManual.cs" />
+    <Compile Include="Model\dataMonthlyReport.cs" />
+    <Compile Include="Model\dataNotice.cs" />
+    <Compile Include="Model\dataNotifikasiIjin.cs" />
+    <Compile Include="Model\dataNotifikasiKehadiranIndividu.cs" />
+    <Compile Include="Model\dataPolaHarian.cs" />
+    <Compile Include="Model\dataPolaMingguan.cs" />
+    <Compile Include="Model\dataSaldoCuti.cs" />
+    <Compile Include="Model\dataStatusPegawai.cs" />
+    <Compile Include="Model\dataSubBagian.cs" />
+    <Compile Include="Model\dataTimeCard.cs" />
+    <Compile Include="lib\generateJson.cs" />
+    <Compile Include="lib\koneksi.cs" />
+    <Compile Include="Model\datakaryawan.cs" />
+    <Compile Include="Model\dataUnit.cs" />
+    <Compile Include="Model\dataVariabelLembur.cs" />
+    <Compile Include="Model\IAutocompleteSource.cs" />
+    <Compile Include="Model\IAutocompleteSourceChangingItems.cs" />
+    <Compile Include="Model\ITextBoxSuggestionsSource.cs" />
+    <Compile Include="Model\login.cs" />
+    <Compile Include="Model\State.cs" />
+    <Compile Include="Model\q_RangeDetail.cs" />
+    <Compile Include="Model\taCabang.cs" />
+    <Compile Include="Model\ViewModel.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="System\ComponentModel\DataAnnotations\RequiredAttribute.cs" />
+    <Compile Include="ViewModel\AutocompleteViewModel.cs" />
+    <Compile Include="ViewModel\TextBoxSuggestionsViewModel.cs" />
+    <Compile Include="View\calendar\calendar.xaml.cs">
+      <DependentUpon>calendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\connection\connection.xaml.cs">
+      <DependentUpon>connection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\customDialog\alertDelete.xaml.cs">
+      <DependentUpon>alertDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\customDialog\alertDialog.xaml.cs">
+      <DependentUpon>alertDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\customDialog\dialogClose.xaml.cs">
+      <DependentUpon>dialogClose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\home\home.xaml.cs">
+      <DependentUpon>home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\employee\employee.xaml.cs">
+      <DependentUpon>employee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\employee\FormEmployee.xaml.cs">
+      <DependentUpon>FormEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\eselon\eselon.xaml.cs">
+      <DependentUpon>eselon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\eselon\FormEselon.xaml.cs">
+      <DependentUpon>FormEselon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\golongan\FormGolongan.xaml.cs">
+      <DependentUpon>FormGolongan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\golongan\golongan.xaml.cs">
+      <DependentUpon>golongan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\grade\FormGrade.xaml.cs">
+      <DependentUpon>FormGrade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\grade\grade.xaml.cs">
+      <DependentUpon>grade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\ijin\FormLeave.xaml.cs">
+      <DependentUpon>FormLeave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\ijin\leave.xaml.cs">
+      <DependentUpon>leave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\jabatan\FormJabatan.xaml.cs">
+      <DependentUpon>FormJabatan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\jabatan\jabatan.xaml.cs">
+      <DependentUpon>jabatan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\lembur\faktor_pengali_lembur.xaml.cs">
+      <DependentUpon>faktor_pengali_lembur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\lembur\FormFaktorPengali.xaml.cs">
+      <DependentUpon>FormFaktorPengali.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\lembur\FormLemburOtomatis.xaml.cs">
+      <DependentUpon>FormLemburOtomatis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\lembur\lemburOtomatis.xaml.cs">
+      <DependentUpon>lemburOtomatis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\lembur\overtime_config.xaml.cs">
+      <DependentUpon>overtime_config.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\lembur\parameterLembur.xaml.cs">
+      <DependentUpon>parameterLembur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\libur\FormLibur.xaml.cs">
+      <DependentUpon>FormLibur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\libur\holiday.xaml.cs">
+      <DependentUpon>holiday.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\satker\bagian.xaml.cs">
+      <DependentUpon>bagian.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\satker\biro.xaml.cs">
+      <DependentUpon>biro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\satker\deputi.xaml.cs">
+      <DependentUpon>deputi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\satker\FormBagian.xaml.cs">
+      <DependentUpon>FormBagian.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\satker\FormBiro.xaml.cs">
+      <DependentUpon>FormBiro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\satker\FormSatker.xaml.cs">
+      <DependentUpon>FormSatker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\satker\FormSubBagian.xaml.cs">
+      <DependentUpon>FormSubBagian.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\satker\subBagian.xaml.cs">
+      <DependentUpon>subBagian.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\shift\FormShiftHarian.xaml.cs">
+      <DependentUpon>FormShiftHarian.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\shift\FormShiftMingguan.xaml.cs">
+      <DependentUpon>FormShiftMingguan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\shift\shftMingguan.xaml.cs">
+      <DependentUpon>shftMingguan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\shift\shift.xaml.cs">
+      <DependentUpon>shift.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\shift\shiftHarian.xaml.cs">
+      <DependentUpon>shiftHarian.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\status_pegawai\FormStatusPegawai.xaml.cs">
+      <DependentUpon>FormStatusPegawai.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\status_pegawai\statusPegawai.xaml.cs">
+      <DependentUpon>statusPegawai.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\timecard\FormAddDataTimecard.xaml.cs">
+      <DependentUpon>FormAddDataTimecard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\timecard\FormEditDataTimeCard.xaml.cs">
+      <DependentUpon>FormEditDataTimeCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\timecard\FormTimeCardDetail.xaml.cs">
+      <DependentUpon>FormTimeCardDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\timecard\timecard.xaml.cs">
+      <DependentUpon>timecard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\master\timecard\timecard_detail.xaml.cs">
+      <DependentUpon>timecard_detail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\annual.xaml.cs">
+      <DependentUpon>annual.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\daily.xaml.cs">
+      <DependentUpon>daily.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\monthly.xaml.cs">
+      <DependentUpon>monthly.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\monthlyReport.xaml.cs">
+      <DependentUpon>monthlyReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\transaksi\ijin\FormIjin.xaml.cs">
+      <DependentUpon>FormIjin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\transaksi\ijin\FormIjinJam.xaml.cs">
+      <DependentUpon>FormIjinJam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\transaksi\ijin\ijinPerHari.xaml.cs">
+      <DependentUpon>ijinPerHari.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\transaksi\ijin\ijinPerJam.xaml.cs">
+      <DependentUpon>ijinPerJam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\transaksi\leaveAccrual\LeaveAccrual.xaml.cs">
+      <DependentUpon>LeaveAccrual.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\transaksi\manual\FormManual.xaml.cs">
+      <DependentUpon>FormManual.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\transaksi\manual\manual.xaml.cs">
+      <DependentUpon>manual.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\transaksi\notice\FormNotice.xaml.cs">
+      <DependentUpon>FormNotice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\transaksi\notice\notice.xaml.cs">
+      <DependentUpon>notice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\transaksi\polajadwal\polaJadwalKolektif.xaml.cs">
+      <DependentUpon>polaJadwalKolektif.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="style\Dark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="style\Light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\calendar\calendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\connection\connection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\customDialog\alertDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\customDialog\alertDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\customDialog\dialogClose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\home\home.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\master\employee\employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\employee\FormEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\eselon\eselon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\eselon\FormEselon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\golongan\FormGolongan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\golongan\golongan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\grade\FormGrade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\grade\grade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\ijin\FormLeave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\ijin\leave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\jabatan\FormJabatan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\jabatan\jabatan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\lembur\faktor_pengali_lembur.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\master\lembur\FormFaktorPengali.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\lembur\FormLemburOtomatis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\lembur\lemburOtomatis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\lembur\overtime_config.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\master\lembur\parameterLembur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\libur\FormLibur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\libur\holiday.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\satker\bagian.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\satker\biro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\satker\deputi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\satker\FormBagian.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\satker\FormBiro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\satker\FormSatker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\satker\FormSubBagian.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\satker\subBagian.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\shift\FormShiftHarian.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\shift\FormShiftMingguan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\master\shift\shftMingguan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\shift\shift.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\shift\shiftHarian.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\status_pegawai\FormStatusPegawai.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\status_pegawai\statusPegawai.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\timecard\FormAddDataTimecard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\timecard\FormEditDataTimeCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\timecard\FormTimeCardDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\timecard\timecard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\master\timecard\timecard_detail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Report\annual.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Report\daily.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Report\monthly.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Report\monthlyReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\transaksi\ijin\FormIjin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\transaksi\ijin\FormIjinJam.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\transaksi\ijin\ijinPerHari.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\transaksi\ijin\ijinPerJam.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\transaksi\leaveAccrual\LeaveAccrual.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\transaksi\manual\FormManual.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\transaksi\manual\manual.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\transaksi\notice\FormNotice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\transaksi\notice\notice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\transaksi\polajadwal\polaJadwalKolektif.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\monthlyReports.rdlc" />
+    <None Include="DataRealDataSet.xsc">
+      <DependentUpon>DataRealDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataRealDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataRealDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataRealDataSet.xss">
+      <DependentUpon>DataRealDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\rtwin.Model.comboBoxTemplate.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataBagian.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataBiro.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataCabang.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDeputi.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailBagianTabel.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailBagianView.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailBiroTabel.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailBiroView.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailDeputitabel.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailDeputiView.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailEselon.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailFaktorPengali.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailGolongan.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailGrade.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailIjin.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailJabatan.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailKaryawanAktif.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailStatusPegawai.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailSubBagianView.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailTimeCard.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailUnitTabel.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataDetailUnitView.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataEselon.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataFaktorPengali.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataGolongan.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataGrade.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataIjin.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataJabatan.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.datakaryawan.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataKaryawanAktif.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataLibur.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataMonthlyReport.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataNotifikasiIjin.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataNotifikasiKehadiranIndividu.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataPolaHarian.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataPolaMingguan.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataQ_rangeDetail.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataStatusPegawai.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataSubBagian.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataTimeCard.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataUnit.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.dataVariabelLembur.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.detailDataLibur.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.detailVariabelLembur.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.IAutocompleteSource.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.ITextBoxSuggestionsSource.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.login.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.q_RangeDetail.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.State.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.StateFactory.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.strukturDataPola.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.strukturDataPolaHarian.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.taCabang.datasource" />
+    <None Include="Properties\DataSources\rtwin.Model.TextBoxSuggestionsSource.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="View\master\golongan\golongan.xaml.cs.mine" />
+    <None Include="View\master\golongan\golongan.xaml.cs.r220" />
+    <None Include="View\master\golongan\golongan.xaml.cs.r223" />
+    <None Include="View\master\jabatan\jabatan.xaml.cs.mine" />
+    <None Include="View\master\jabatan\jabatan.xaml.cs.r220" />
+    <None Include="View\master\jabatan\jabatan.xaml.cs.r223" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\backGroundLogin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\account_login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\doneLoader.gif" />
+    <Resource Include="backGroundLogin.jpg" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="assets\triggerLoader.gif" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

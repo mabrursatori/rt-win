@@ -1,0 +1,771 @@
+﻿<UserControl x:Class="rtwin.View.calendar.calendar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:rtwin.View.calendar"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+            <Button x:Name="prevMont" Click="PrevMont_Click" Margin="0,0,15,0" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Previus">
+                <materialDesign:PackIcon Kind="FirstPage" Height="20" Width="20" />
+            </Button>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <!--@dari to @sampai of @total entries-->
+                <TextBlock x:Name="NamaBulan" FontSize="16">September</TextBlock>
+            </StackPanel>
+
+            <Button x:Name="nextMonth" Click="NextMonth_Click" Margin="15,0,0,0" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Last Page">
+                <materialDesign:PackIcon Kind="LastPage" Height="20" Width="20" />
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal"  >
+            <materialDesign:Card Background="#b4004e" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignBody1TextBlock}"> Minggu
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#0277bd" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignBody1TextBlock}"> Senin
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#0277bd" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignBody1TextBlock}"> Selasa
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#0277bd" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignBody1TextBlock}"> Rabu
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#0277bd" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignBody1TextBlock}"> Kamis
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#0277bd" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignBody1TextBlock}"> Jumat
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#b4004e" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignBody1TextBlock}"> Sabtu
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+
+                </Grid>
+            </materialDesign:Card>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" >
+            <materialDesign:Card Background="#ff77a9" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="0,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 1
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" Margin="2,2,-2,2" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb1" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 2
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb2" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl3" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 3
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb3" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 4
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb4" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl5" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 5
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb5" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl6" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 6
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb6" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#ff77a9" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl7" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 7
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb7" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" >
+            <materialDesign:Card Background="#ff77a9" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="0,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl8" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 1
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb8" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl9" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 2
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb9" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl10" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 3
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb10" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl11" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 4
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb11" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl12" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 5
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb12" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl13" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 6
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb13" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#ff77a9" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl14" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 7
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb14" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" >
+            <materialDesign:Card Background="#ff77a9" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="0,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl15" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 1
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb15" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl16" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 2
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb16" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl17" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 3
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb17" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl18" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 4
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb18" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl19" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 5
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb19" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl20" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 6
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb20" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#ff77a9" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl21" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 7
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb21" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Orientation="Horizontal" >
+            <materialDesign:Card Background="#ff77a9" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="0,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl22" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 1
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb22" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13.519" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl23" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="54,0,53,0" Style="{StaticResource MaterialDesignHeadlineTextBlock}" Grid.RowSpan="2"> 2
+                    </TextBlock>
+                    <Separator Grid.Row="2" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="3" Margin="5">
+                        <ComboBox x:Name="cmb23" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl24" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 3
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb24" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl25" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 4
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb25" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl26" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 5
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb26" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl27" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 6
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb27" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#ff77a9" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl28" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 7
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb28" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+        </StackPanel>
+
+        <StackPanel Grid.Row="6" Orientation="Horizontal" >
+            <materialDesign:Card Background="#ff77a9" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="0,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl29" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 1
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb29" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl30" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 2
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb30" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl31" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 3
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb31" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl32" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 4
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb32" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl33" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 5
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb33" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl34" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 6
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb34" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#ff77a9" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl35" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 7
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb35" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+        </StackPanel>
+
+        <StackPanel Grid.Row="7" Orientation="Horizontal" >
+            <materialDesign:Card Background="#ff77a9" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="0,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl36" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 1
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb36" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl37" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 2
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb37" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl38" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 3
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb38" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl39" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 4
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb39" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl40" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 5
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb40" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl41" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 6
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb41" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Background="#ff77a9" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Width="120" Margin="2,3,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="16*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="19*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="tgl42" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16 0 16 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}"> 7
+                    </TextBlock>
+                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                    <StackPanel Grid.Row="2" Margin="5">
+                        <ComboBox x:Name="cmb42" SelectedValuePath="Content"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+        </StackPanel>
+    </Grid>
+</UserControl>

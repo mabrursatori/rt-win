@@ -1,0 +1,103 @@
+RTWin 3.0 Edisi Profesional
+Petunjuk Instalasi
+
+
+File berisi petunjuk instalasi Aplikasi Sistem Pencatat Kehadiran (RTWin) 3.0 
+Edisi Profesinal. Kami sarankan anda untuk membaca file ini sebelum melanjutkan 
+proses instalasi. Isi dari file ini terdapat dalam  CD untuk dapat dibaca atau 
+dicetak.
+Catatan dan informasi lainnya terdapat dalam file README juga dapat dibaca dan 
+dicetak  dari CD instalasi. 
+
+
+TOPIK
+-----
+  TENTANG INSTALASI BARU
+  CARA INSTALASI
+  MELAKUKAN REGISTER SOFTWARE RTWIN
+  MELAKUKAN UNINSTALL SOFTWARE RTWIN
+
+
+TENTANG INSTALASI BARU
+----------------------
+
+Program Instalasi yang baru menggunakan  Microsoft Installer (MSI), dengan 
+kemudahan :
+ 
+Untuk beberapa kondisi , setelah instalasi tidak perlu dilakukan reboot. Kecuali, 
+jika program instalasi meng-update beberapa komponen Windows system, yang 
+membutuhkan proses reboot selesai instalasi.
+
+Program instalasi dapat dilakukan untuk menambah atau menghapus file, serta 
+memperbaikinya. Pilih "Modify" unuk melakukan instalasi dengan beberapa komponen 
+yang tidak terinstall sebelumnya. Pilih "Repair" untuk memperbaiki file-file yang 
+hilang atau rusak. "Remove" untuk uninstall software Pencatat Kehadiran ini.
+
+
+CARA INSTALASI
+--------------
+
+Kebutuhan System Minimum
+========================
+* Intel Pentium III 800 MHz atau yang lebih tinggi (P4 2 GHz disarankan)
+* Microsoft Windows 98, 2000, Me, XP, NT 4.0 with Service Pack 5 atau yang lebih 
+  tinggi
+* 128 Mb RAM (256 Mb disarankan)
+* 50 Mb hard disk space (data kosong, 10Gb disarankan)
+* CD-ROM drive
+* VGA dengan resolusi minimal 800 x 600 (AGP with True Color disarankan)
+* Mouse or atau perangkat penunjuk lainnya
+
+Sebelum Instalasi
+=================
+
+Sebelum instalasi Periksa Database Pencatat Kehadiran sebelumnya, jika Aplikasi 
+Pencatat Kehadiran  pernah diinstalasi. Backup dan copy file-file pada 
+sub-directory DataReal (Default directory C:\Program Files\RTWin\DataReal) ke 
+directory lain. Setelah proses instalasi selesai copy kembali / restore Database 
+ke directory semula jika data tersebut masih dibutuhkan. 
+
+Directory instalasi
+===================
+Instalasikan Pencatat Kehadiran melalui Setup Launcher (SETUP.EXE) dari Disk atau 
+CD instalasi. Secara umum, file-file Pencatat Kehadiran akan disimpan pada 
+directory atau folder:
+
+	\Program Files\RTWin
+
+-----------------------------------------------------------------------------------
+PERINGATAN:
+    Jangan menjalankan aplikasi Pencatat Kehadiran RTWin yang pernah diinstalasikan 
+    terdahulu jika instalasi akan dilaksanakan.
+-----------------------------------------------------------------------------------
+
+Jika sudah pernah menginstalasi RTWin
+=====================================
+
+Lakukan uninstall program aplikasi yang lama dari Control Panel.
+
+
+MELAKUKAN REGISTER SOFTWARE RTWIN
+---------------------------------
+
+Registrasi dibutuhkan untuk seluruh pengguna.
+
+Isian registrasi akan muncul saat pertama kali mejalankan program aplikasi. Jika 
+registrasi dibatalkan atau ada isian yang salah anda tidak bisa menjalankan aplikasi 
+pencatat kehadiran RTWin.
+ 
+Nomor registasi diberikan oleh agen atau distributor yang menjual aplikasi pencatat 
+kehadiran RTWin secara resmi.
+
+
+MELAKUKAN UNINSTALL SOFTWARE RTWIN
+----------------------------------
+
+Untuk melakukan uninstall software aplikasi Pencatat Kehadiran RTWin ini buka folder 
+Control Panel dan jalankan Add/Remove Programs. Pilih RTWin Edisi Profesional dari 
+daftar, klik pilihan Add/Remove, dan ikuti petunjuk yang tampak di layar.
+
+
+------------------------
+Copyright © 2002 Rekayasa Biometrika
+

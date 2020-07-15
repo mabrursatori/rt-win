@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace rtwin.dataQuery
+{
+    class queryMonthlyReporting
+    {
+        public static string queryMonthly()
+        {
+            return "select TGL_MASUK,JAM_AWAL,JAM_AKHIR,JAM_MASUK,JAM_KELUAR,TERLAMBAT,CEPAT_PULANG,KETERANGAN,UANG_MAKAN,PERSEN_POTONGAN from q_AbsenHarianDetil where TGL_MASUK >= '2019-06-01' AND TGL_MASUK<= '2019-06-30'";
+        }
+    }
+}

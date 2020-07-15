@@ -1,0 +1,241 @@
+﻿<UserControl x:Class="rtwin.View.transaksi.leaveAccrual.LeaveAccrual"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:rtwin.View.transaksi.leaveAccrual"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:viewModel="clr-namespace:rtwin.ViewModel"
+              xmlns:controls="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
+             xmlns:converters="clr-namespace:MaterialDesignExtensions.Converters;assembly=MaterialDesignExtensions">
+    <UserControl.Resources>
+        <converters:NullToVisibilityConverter x:Key="notNullToVisibleConverter" NullValue="Collapsed" NotNullValue="Visible" />
+    </UserControl.Resources>
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.RowSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1050" Height="523" Style="{StaticResource RectangleView}"/>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
+
+            <ComboBox x:Name="cmbProses" Width="150" Margin="10">
+                <ComboBoxItem IsSelected="True">Update Jatah Ijin</ComboBoxItem>
+                <ComboBoxItem>Tambah Jatah Ijin</ComboBoxItem>
+                <ComboBoxItem>Potong Jatah Ijin</ComboBoxItem>
+                <ComboBoxItem>Potong Sisa Jatah ijin</ComboBoxItem>
+                <ComboBoxItem>Ubah Tanggal Batas Jatah Ijin</ComboBoxItem>
+                <ComboBoxItem>Penangguhan Jatah Ijin</ComboBoxItem>
+                <ComboBoxItem>Hangus Jatah Ijin</ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="btnProcess" Click="BtnProcess_Click" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Height="40"  ToolTip="MaterialDesignRaisedButton with Round Corners"   Content="Proses" Margin="12,0" Background="Green"/>
+            <Button Margin="10,0,0,0" x:Name="btnSearch" Click="BtnSearch_Click" Style="{DynamicResource ButtonPagination}" HorizontalAlignment="Left" >
+                <materialDesign:PackIcon Kind="Search" Height="24" Width="24" />
+            </Button>
+
+        </StackPanel>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <materialDesign:DialogHost x:Name="dialogProsesKonfirmasi" VerticalAlignment="Top">
+                <materialDesign:DialogHost.DialogContent>
+                    <GroupBox Header="Konfirmasi" Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" x:Name="lblKonfirmasi" Margin="0,10"></TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnProsesKonfirmasi" Click="BtnProsesKonfirmasi_Click" Width="100" ToolTip="Resource name: MaterialDesignRaisedButton">
+                                    OK 
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" Command="materialDesign:DialogHost.CloseDialogCommand" Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedButton">
+                                    Batal
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
+
+            <materialDesign:DialogHost x:Name="dialogInputParameter" VerticalAlignment="Top">
+                <materialDesign:DialogHost.DialogContent>
+                    <GroupBox Header="Input Parameter" Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" x:Name="lblInputParameter"></TextBlock>
+                            <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="txtInputParameter" />
+                            <StackPanel Orientation="Horizontal" Margin="0,10">
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnDialogInputParameter" Click="BtnDialogInputParameter_Click" Width="100" ToolTip="Resource name: MaterialDesignRaisedButton">
+                                    OK
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}" Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedButton" Command="materialDesign:DialogHost.CloseDialogCommand">
+                                    Batal
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
+
+            <materialDesign:DialogHost x:Name="dialogInputTgl" VerticalAlignment="Top">
+                <materialDesign:DialogHost.DialogContent>
+                    <GroupBox Header="Input Paramter" Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" x:Name="lblInputTgl"></TextBlock>
+                            <DatePicker Style="{StaticResource MaterialDesignFloatingHintDatePicker}" x:Name="dpTgl" />
+                            <StackPanel Orientation="Horizontal" Margin="0,10">
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnDialogInput" Click="BtnDialogInput_Click" Width="100" ToolTip="Resource name: MaterialDesignRaisedButton">
+                                    OK
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" ToolTip="Resource name: MaterialDesignRaisedButton" Command="materialDesign:DialogHost.CloseDialogCommand">
+                                    Batal
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
+            <materialDesign:DialogHost x:Name="dialog" 
+  VerticalAlignment="Top" >
+                <materialDesign:DialogHost.DialogContent>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="70"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Width="300" Orientation="Vertical" Margin="0,10,0,0"  VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="25,0,0,0">
+                                <ComboBox x:Name="thn1" Width="100"></ComboBox>
+                                <ComboBox x:Name="thn2" Margin="20,0,0,0" Width="100"></ComboBox>
+                            </StackPanel>
+                            
+                            <ScrollViewer x:Name="svNip" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0,5,0,0"
+                      HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                                <StackPanel HorizontalAlignment="Center" Width="250" Orientation="Vertical" Margin="0,16,0,0">
+                                    <controls:TextBoxSuggestions TextBoxSuggestionsSource="{Binding Path=TextBoxSuggestionsSource}">
+                                        <TextBox Width="250" x:Name="txtNip" materialDesign:HintAssist.Hint="Masukan Nama Atau Nip"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Text="{Binding Path=Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    </controls:TextBoxSuggestions>
+
+                                </StackPanel>
+                            </ScrollViewer>
+                            <TextBlock x:Name="lblNip" HorizontalAlignment="Center" Visibility="Hidden" Style="{StaticResource MaterialDesignBody2TextBlock}" Width="auto" ></TextBlock>
+
+                            <ComboBox Margin="10,0,10,0" SelectionChanged="CmbKodeDeputi_SelectionChanged"  materialDesign:HintAssist.Hint="Deputi" Width="250" x:Name="cmbKodeDeputi" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+
+                            </ComboBox>
+                            <ComboBox Margin="10,0,10,0"  materialDesign:HintAssist.Hint="Biro" Width="250" x:Name="cmbKodeBiro" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+
+                            </ComboBox>
+                            <ComboBox Margin="10,10,10,0"  materialDesign:HintAssist.Hint="Status Ijin" Width="250" x:Name="cmbKodeIjin" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                
+                            </ComboBox>
+
+                            <Separator Style="{StaticResource MaterialDesignLightSeparator}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="20">
+                            <Button x:Name="btnTampilkan" Click="BtnTampilkan_Click" Style="{StaticResource MaterialDesignRaisedAccentButton}" Width="100"
+    ToolTip="Resource name: MaterialDesignRaisedAccentButton">Tampilkan
+                            </Button>
+                        </StackPanel>
+
+                    </Grid>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
+
+            <TextBlock Margin="0,10,20,0" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource MaterialDesignCaptionTextBlock}"> Urutkan Berdasar
+            </TextBlock>
+            <ComboBox x:Name="cmbSort" SelectionChanged="CmbSort_SelectionChanged" HorizontalAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+
+
+            </ComboBox>
+            <Button Margin="10,0,0,0" x:Name="btnSort" Click="BtnSort_Click"  Style="{DynamicResource ButtonPagination}" HorizontalAlignment="Left" >
+                <materialDesign:PackIcon x:Name="arrowSort" Kind="ArrowUp" Height="24" Width="24" />
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Vertical"  HorizontalAlignment="Stretch" >
+
+            <DataGrid x:Name="dgLeaveAccrual" Margin="10 5 10 0" ColumnWidth="*"  
+  CanUserAddRows="False" IsReadOnly="True" >
+                <!--<DataGrid.Columns >
+                    <DataGridCheckBoxColumn Header="Status Ijin" Binding="{Binding STATUS_IJIN}" />
+                    <DataGridTemplateColumn Header="Edit"   >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="edit" Click="Edit_Click" HorizontalAlignment="Left" Height="30" Width="30" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Edit">
+                                    <materialDesign:PackIcon Kind="Edit" Height="24" Width="24" Foreground="White" />
+                                </Button>
+
+                            </DataTemplate>
+
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Hapus"  >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="hapus" HorizontalAlignment="Left" Click="Hapus_Click" Width="30" Height="30" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Background="Red" BorderBrush="Red" ToolTip="Hapus">
+                                    <materialDesign:PackIcon Kind="Delete" Height="20" Width="20" Foreground="White" />
+                                </Button>
+
+                            </DataTemplate>
+
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
+                </DataGrid.Columns>-->
+
+            </DataGrid>
+            <StackPanel >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,10">
+                        <Button x:Name="firstPage" Click="FirstPage_Click" Margin="0,0,15,0" Style="{DynamicResource ButtonPagination}" ToolTip="Previus">
+                            <materialDesign:PackIcon Kind="FirstPage" Height="24" Width="24" />
+                        </Button>
+                        <Button  x:Name="prevPage" Click="PrevPage_Click" Margin="0,0,15,0" Style="{DynamicResource ButtonPagination}" ToolTip="Previus">
+                            <materialDesign:PackIcon Kind="PagePrevious" Height="24" Width="24" />
+                        </Button>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                            <!--@dari to @sampai of @total entries-->
+                            <Label>Showing</Label>
+                            <TextBlock x:Name="dari" HorizontalAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource MaterialDesignCaptionTextBlock}">  21
+                            </TextBlock>
+                            <Label>To</Label>
+                            <TextBlock x:Name="sampai" HorizontalAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource MaterialDesignCaptionTextBlock}">  21
+                            </TextBlock>
+                            <Label>of</Label>
+                            <TextBlock x:Name="total" HorizontalAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource MaterialDesignCaptionTextBlock}">  21
+                            </TextBlock>
+                            <Label>entries</Label>
+                        </StackPanel>
+
+                        <Button x:Name="nextPage" Click="NextPage_Click" Margin="15,0,0,0" Style="{DynamicResource ButtonPagination}" ToolTip="Next">
+                            <materialDesign:PackIcon Kind="PageNext" Height="24" Width="24" />
+                        </Button>
+                        <Button x:Name="lastPage" Click="LastPage_Click" Margin="15,0,0,0" Style="{DynamicResource ButtonPagination}" ToolTip="Last Page">
+                            <materialDesign:PackIcon Kind="LastPage" Height="24" Width="24" />
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal"   HorizontalAlignment="Left" Margin="10,0,0,10" >
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource MaterialDesignCaptionTextBlock}"> Jumlah data
+                        </TextBlock>
+                        <ComboBox x:Name="cmbJumData"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,10" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectionChanged="CmbJumData_SelectionChanged">
+                            <ComboBoxItem IsSelected="True">10</ComboBoxItem>
+                            <ComboBoxItem>20</ComboBoxItem>
+                            <ComboBoxItem>30</ComboBoxItem>
+
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+
+    </Grid>
+</UserControl>

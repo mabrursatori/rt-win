@@ -1,0 +1,138 @@
+﻿using MaterialDesignThemes.Wpf;
+using Microsoft.Reporting.WinForms;
+using Newtonsoft.Json;
+using rtwin.dataQuery;
+using rtwin.lib;
+using rtwin.Model;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace rtwin.View.Report
+{
+    /// <summary>
+    /// Interaction logic for monthly.xaml
+    /// </summary>
+    public partial class monthly : UserControl
+    {
+        bool isSqlServer;
+        DialogHost dialogHost;
+        Frame frameContent, dialogContent;
+        Image LoadingContent;
+        koneksi con;
+        generateJson js;
+        string json = String.Empty;
+        bool asc = true;
+        int page = 0;
+        int AllDataGrid = 0, HeightScress;
+        TextBlock breadcumb;
+        string queryDelete = "";
+        string username;
+        string actionLog = "";
+        bool dialogSearch;
+        List<comboBoxTemplate> namaDeputi, namaBiro;
+
+        private void ReportViewerMonthly_RenderingComplete(object sender, RenderingCompleteEventArgs e)
+        {
+
+        }
+
+        public monthly(bool isSqlServer, TextBlock bredcumb, DialogHost dialogHost, Frame frameContent, Image LoadingContent, Frame dialogContent, string username)
+        {
+            HeightScress = Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Height);
+            this.js = new generateJson(isSqlServer);
+            this.con = new koneksi(isSqlServer);
+            this.isSqlServer = isSqlServer;
+            this.dialogHost = dialogHost;
+            this.frameContent = frameContent;
+            this.LoadingContent = LoadingContent;
+            this.breadcumb = bredcumb;
+            this.dialogContent = dialogContent;
+            this.username = username;
+            bredcumb.Text = "Laporan / Laporan Bulanan";
+            InitializeComponent();
+        }
+
+        private void BtnFilter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            string nip = "2000000050";
+            DataTable dt = new DataTable();
+            dt.Columns.Add("NIP", typeof(string));
+            dt.Columns.Add("NAMA", typeof(string));
+            dt.Columns.Add("TGL_MASUK", typeof(string));
+            dt.Columns.Add("JAM_AWAL", typeof(string));
+            dt.Columns.Add("JAM_AKHIR", typeof(string));
+            dt.Columns.Add("JAM_MASUK", typeof(string));
+            dt.Columns.Add("TERLAMBAT", typeof(string));
+            dt.Columns.Add("JAM_KELUAR", typeof(string));
+            dt.Columns.Add("CEPAT_PULANG", typeof(string));
+            dt.Columns.Add("KETERANGAN", typeof(string));
+            dt.Columns.Add("TIPE_POTONGAN", typeof(string));
+            dt.Columns.Add("PERSEN_POTONGAN", typeof(string));
+            dt.Columns.Add("UANG_MAKAN", typeof(string));
+
+            DataRow dr;
+            //string query = queryMonthlyReporting.queryMonthly();
+            //json = js.generateDataJson(queryMonthlyReporting.queryMonthly());
+            string query = queryMonthlyReporting.queryMonthlyParams(nip);
+            json = js.generateDataJson(query);
+            //MessageBox.Show(json);
+            List<dataMonthlyReport> data = JsonConvert.DeserializeObject<List<dataMonthlyReport>>(json);
+            for (int i = 0; i < data.Count; i++)
+            {
+                dr = dt.NewRow();
+                dr["NIP"] = data[i].NIP.ToString();
+                dr["NAMA"] = data[i].NAMA.ToString();
+                dr["TGL_MASUK"] = Convert.ToDateTime(data[i].TGL_MASUK).ToString("dd/MM/yyyy");
+                dr["JAM_AWAL"] = Convert.ToDateTime(data[i].JAM_AWAL).ToString("HH:mm");
+                dr["JAM_AKHIR"] = Convert.ToDateTime(data[i].JAM_AKHIR).ToString("HH:mm");
+                dr["JAM_MASUK"] = Convert.ToDateTime(data[i].JAM_MASUK).ToString("HH:mm");
+                dr["TERLAMBAT"] = Convert.ToDateTime(data[i].TERLAMBAT).ToString("HH:mm");
+                dr["JAM_KELUAR"] = Convert.ToDateTime(data[i].JAM_KELUAR).ToString("HH:mm");
+                dr["CEPAT_PULANG"] = Convert.ToDateTime(data[i].CEPAT_PULANG).ToString("HH:mm");
+                //dr["KETERANGAN"] = data[i].KETERANGAN.ToString();
+                //dr["TIPE_POTONGAN"] = data[i].TIPE_POTONGAN.ToString();
+                //dr["PERSEN_POTONGAN"] = data[i].PERSEN_POTONGAN.ToString();
+                //dr["UANG_MAKAN"] = data[i].UANG_MAKAN.ToString();
+                //dt.Rows.Add(new dataMonthlyReport { TGL_MASUK = Convert.ToDateTime(data[i].TGL_MASUK).ToString("dd/MM/yyyy"), JAM_MASUK = Convert.ToDateTime(data[i].JAM_MASUK).ToString("HH:mm"), JAM_AKHIR = Convert.ToDateTime(data[i].JAM_AKHIR).ToString("HH:mm") });
+                dt.Rows.Add(dr);
+            }
+           
+            try
+            {
+                
+                ReportDataSource reportDataSource = new ReportDataSource();
+                reportDataSource.Name = "dsMonthly";
+                reportDataSource.Value = dt;
+              //reportViewerMonthly.LocalReport.ReportPath = @"~/reports/monthlyReport.rdlc";
+                reportViewerMonthly.LocalReport.ReportEmbeddedResource =  "rtwin.reports.monthlyReports.rdlc";
+                reportViewerMonthly.LocalReport.DataSources.Clear();
+                reportViewerMonthly.LocalReport.DataSources.Add(reportDataSource);
+
+                reportViewerMonthly.RefreshReport();
+            }
+            catch(ReportViewerException x)
+            {
+                MessageBox.Show(x.Message);
+            }
+            
+        }
+    }
+}

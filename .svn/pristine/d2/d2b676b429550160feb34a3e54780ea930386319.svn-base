@@ -1,0 +1,756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataRealDataSet" targetNamespace="http://tempuri.org/DataRealDataSet.xsd" xmlns:mstns="http://tempuri.org/DataRealDataSet.xsd" xmlns="http://tempuri.org/DataRealDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DataRealConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DataRealConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.rtwin.Properties.Settings.GlobalReference.Default.DataRealConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="q_AbsenHarianDetilTableAdapter" GeneratorDataComponentClassName="q_AbsenHarianDetilTableAdapter" Name="q_AbsenHarianDetil" UserDataComponentName="q_AbsenHarianDetilTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DataRealConnectionString (Settings)" DbObjectName="DataReal.dbo.q_AbsenHarianDetil" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT NIP, NIP_BARU, PIN, NPWP, KODE_CABANG, KODE_DEPARTEMEN, KODE_INSTANSI, KODE_UNIT, KODE_DEPUTI, KODE_BIRO, KODE_BAGIAN, KODE_SUBBAGIAN, KODE_JABATAN, KODE_GOLONGAN, KODE_GRADE, KODE_ESELON, KODE_SATKER, KODE_STATUS_PEGAWAI, LAP_KEUANGAN, KODE_SHIFT, NAMA, NOREK_BANK, TGL_MASUK, JAM_MASUK, JAM_KELUAR, ISI_MANUAL, KODE_ABSEN, KODE_RANGE, JAM_AWAL, JAM_AKHIR, JAM_KERJA, JAM_ISTIRAHAT, CEPAT_DATANG, TERLAMBAT, CEPAT_PULANG, LAMBAT_PULANG, WAKTU_FLEXI, LAMA, LAMBAT_IJIN, CEPATPULANG_IJIN, LAMA_IJIN, LAMA_IJINTENGAH, KODE_IJIN, KET_IJIN, KODE_TIDAK_HADIR, BUKTI_IJIN, JAM_AWAL_IJIN, JAM_AKHIR_IJIN, IJIN_DINAS, POTONGAN_TKK, JAM_MULAI_IJIN_AWAL, JAM_SELESAI_IJIN_AWAL, JAM_MULAI_IJIN_AKHIR, JAM_SELESAI_IJIN_AKHIR, KET_LIBUR, KODE_POTONGAN, PERSEN_POTONGAN, TIPE_POTONGAN, JAM_AWAL_SPL, JAM_AKHIR_SPL, JENIS_KERJA_SPL, JAM_MULAI_SPL_AWAL, JAM_SELESAI_SPL_AWAL, JAM_MULAI_SPL_AKHIR, JAM_SELESAI_SPL_AKHIR, LEMBUR_AWAL, LEMBUR_AKHIR, TOTAL_LEMBUR, LEMBUR_KERJA, LEMBUR_LIBUR, LEMBUR_DIAKUI, UANG_MAKAN_LEMBUR, KODE_LEMBUR, KET_SINGKAT, KETERANGAN, TARIF_MAKAN, MAKS_HARI_TERIMA_MAKAN, TARIF_LEMBUR, PAJAK, NILAI_PAJAK, KERJA, MANGKIR, TELAT, CPTPLG, LEMBUR, MANUAL, MASUKLIBUR, IJIN, MASUK, ABSEN1X, CUTI, IJIN_JAM, TELAT_IJIN, CPTPLG_IJIN, HADIR_MAKAN, POTONGTKK, EFEKTIF, JAM_TENGAH, HARI, STATUS_A, STATUS_BAK, STATUS_CB, STATUS_CBS, STATUS_CB2, STATUS_CB3, STATUS_CB4, STATUS_CDT, STATUS_CP, STATUS_CPK, STATUS_CS, STATUS_CS2, status_tbl, STATUS_CSR, STATUS_CSR2, STATUS_CT, STATUS_DL, STATUS_LP, STATUS_MPJ, STATUS_MPP, STATUS_PD, STATUS_SDR, STATUS_TB, STATUS_T, STATUS_S, STATUS_SD, STATUS_I, STATUS_TM, STATUS_PC, STATUS_TC, STATUS_HTT, STATUS_TL, mmEFEKTIF, mmJAM_KERJA, mmLEMBUR_AWAL, mmLEMBUR_AKHIR, mmTOTAL_LEMBUR, mmCEPAT_DATANG, mmTERLAMBAT, mmCEPAT_PULANG, mmLAMBAT_PULANG, POTONGAN_TMPC, POTONGAN_CUTI, POTONGAN_DTCP, POTONGAN_MANGKIR, KODE_POTONGAN_PERINGATAN, POTONGAN_PERINGATAN, KODE_POTONGAN_HUKUMAN, POTONGAN_HUKUMAN, NAMA_CABANG, NAMA_DEPARTEMEN, NAMA_INSTANSI, NAMA_UNIT, NAMA_DEPUTI, NAMA_BIRO, NAMA_BAGIAN, NAMA_SUBBAGIAN, NAMA_JABATAN, NAMA_GOLONGAN, NAMA_ESELON, NAMA_STATUS_PEGAWAI, NAMA_GROUP, NILAI_GRADE, UM, NAMA_SATKER, KODE_UPACARA, LAMBAT30, LAMBAT60, LAMBAT90, LAMBAT120, LAMBATXX, CEPATPULANG30, CEPATPULANG60, CEPATPULANG90, CEPATPULANG120, CEPATPULANGXX, LAMBAT_IJINJAM30, LAMBAT_IJINJAM60, LAMBAT_IJINJAM90, LAMBAT_IJINJAM120, LAMBAT_IJINJAMXX, CEPATPULANG_IJINJAM30, CEPATPULANG_IJINJAM60, CEPATPULANG_IJINJAM90, CEPATPULANG_IJINJAM120, CEPATPULANG_IJINJAMXX, POTONGAN_LAMBAT01, POTONGAN_LAMBAT02, POTONGAN_LAMBAT03, POTONGAN_LAMBAT04, POTONGAN_CPTPLG01, POTONGAN_CPTPLG02, POTONGAN_CPTPLG03, POTONGAN_CPTPLG04, POTONGAN_ABSEN1X, KET_POTONGAN, PROSEN_POTONGAN, UANG_MAKAN, QURBAN_TOTAL_MENIT_KURANG FROM dbo.q_AbsenHarianDetil</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NIP" DataSetColumn="NIP" />
+              <Mapping SourceColumn="NIP_BARU" DataSetColumn="NIP_BARU" />
+              <Mapping SourceColumn="PIN" DataSetColumn="PIN" />
+              <Mapping SourceColumn="NPWP" DataSetColumn="NPWP" />
+              <Mapping SourceColumn="KODE_CABANG" DataSetColumn="KODE_CABANG" />
+              <Mapping SourceColumn="KODE_DEPARTEMEN" DataSetColumn="KODE_DEPARTEMEN" />
+              <Mapping SourceColumn="KODE_INSTANSI" DataSetColumn="KODE_INSTANSI" />
+              <Mapping SourceColumn="KODE_UNIT" DataSetColumn="KODE_UNIT" />
+              <Mapping SourceColumn="KODE_DEPUTI" DataSetColumn="KODE_DEPUTI" />
+              <Mapping SourceColumn="KODE_BIRO" DataSetColumn="KODE_BIRO" />
+              <Mapping SourceColumn="KODE_BAGIAN" DataSetColumn="KODE_BAGIAN" />
+              <Mapping SourceColumn="KODE_SUBBAGIAN" DataSetColumn="KODE_SUBBAGIAN" />
+              <Mapping SourceColumn="KODE_JABATAN" DataSetColumn="KODE_JABATAN" />
+              <Mapping SourceColumn="KODE_GOLONGAN" DataSetColumn="KODE_GOLONGAN" />
+              <Mapping SourceColumn="KODE_GRADE" DataSetColumn="KODE_GRADE" />
+              <Mapping SourceColumn="KODE_ESELON" DataSetColumn="KODE_ESELON" />
+              <Mapping SourceColumn="KODE_SATKER" DataSetColumn="KODE_SATKER" />
+              <Mapping SourceColumn="KODE_STATUS_PEGAWAI" DataSetColumn="KODE_STATUS_PEGAWAI" />
+              <Mapping SourceColumn="LAP_KEUANGAN" DataSetColumn="LAP_KEUANGAN" />
+              <Mapping SourceColumn="KODE_SHIFT" DataSetColumn="KODE_SHIFT" />
+              <Mapping SourceColumn="NAMA" DataSetColumn="NAMA" />
+              <Mapping SourceColumn="NOREK_BANK" DataSetColumn="NOREK_BANK" />
+              <Mapping SourceColumn="TGL_MASUK" DataSetColumn="TGL_MASUK" />
+              <Mapping SourceColumn="JAM_MASUK" DataSetColumn="JAM_MASUK" />
+              <Mapping SourceColumn="JAM_KELUAR" DataSetColumn="JAM_KELUAR" />
+              <Mapping SourceColumn="ISI_MANUAL" DataSetColumn="ISI_MANUAL" />
+              <Mapping SourceColumn="KODE_ABSEN" DataSetColumn="KODE_ABSEN" />
+              <Mapping SourceColumn="KODE_RANGE" DataSetColumn="KODE_RANGE" />
+              <Mapping SourceColumn="JAM_AWAL" DataSetColumn="JAM_AWAL" />
+              <Mapping SourceColumn="JAM_AKHIR" DataSetColumn="JAM_AKHIR" />
+              <Mapping SourceColumn="JAM_KERJA" DataSetColumn="JAM_KERJA" />
+              <Mapping SourceColumn="JAM_ISTIRAHAT" DataSetColumn="JAM_ISTIRAHAT" />
+              <Mapping SourceColumn="CEPAT_DATANG" DataSetColumn="CEPAT_DATANG" />
+              <Mapping SourceColumn="TERLAMBAT" DataSetColumn="TERLAMBAT" />
+              <Mapping SourceColumn="CEPAT_PULANG" DataSetColumn="CEPAT_PULANG" />
+              <Mapping SourceColumn="LAMBAT_PULANG" DataSetColumn="LAMBAT_PULANG" />
+              <Mapping SourceColumn="WAKTU_FLEXI" DataSetColumn="WAKTU_FLEXI" />
+              <Mapping SourceColumn="LAMA" DataSetColumn="LAMA" />
+              <Mapping SourceColumn="LAMBAT_IJIN" DataSetColumn="LAMBAT_IJIN" />
+              <Mapping SourceColumn="CEPATPULANG_IJIN" DataSetColumn="CEPATPULANG_IJIN" />
+              <Mapping SourceColumn="LAMA_IJIN" DataSetColumn="LAMA_IJIN" />
+              <Mapping SourceColumn="LAMA_IJINTENGAH" DataSetColumn="LAMA_IJINTENGAH" />
+              <Mapping SourceColumn="KODE_IJIN" DataSetColumn="KODE_IJIN" />
+              <Mapping SourceColumn="KET_IJIN" DataSetColumn="KET_IJIN" />
+              <Mapping SourceColumn="KODE_TIDAK_HADIR" DataSetColumn="KODE_TIDAK_HADIR" />
+              <Mapping SourceColumn="BUKTI_IJIN" DataSetColumn="BUKTI_IJIN" />
+              <Mapping SourceColumn="JAM_AWAL_IJIN" DataSetColumn="JAM_AWAL_IJIN" />
+              <Mapping SourceColumn="JAM_AKHIR_IJIN" DataSetColumn="JAM_AKHIR_IJIN" />
+              <Mapping SourceColumn="IJIN_DINAS" DataSetColumn="IJIN_DINAS" />
+              <Mapping SourceColumn="POTONGAN_TKK" DataSetColumn="POTONGAN_TKK" />
+              <Mapping SourceColumn="JAM_MULAI_IJIN_AWAL" DataSetColumn="JAM_MULAI_IJIN_AWAL" />
+              <Mapping SourceColumn="JAM_SELESAI_IJIN_AWAL" DataSetColumn="JAM_SELESAI_IJIN_AWAL" />
+              <Mapping SourceColumn="JAM_MULAI_IJIN_AKHIR" DataSetColumn="JAM_MULAI_IJIN_AKHIR" />
+              <Mapping SourceColumn="JAM_SELESAI_IJIN_AKHIR" DataSetColumn="JAM_SELESAI_IJIN_AKHIR" />
+              <Mapping SourceColumn="KET_LIBUR" DataSetColumn="KET_LIBUR" />
+              <Mapping SourceColumn="KODE_POTONGAN" DataSetColumn="KODE_POTONGAN" />
+              <Mapping SourceColumn="PERSEN_POTONGAN" DataSetColumn="PERSEN_POTONGAN" />
+              <Mapping SourceColumn="TIPE_POTONGAN" DataSetColumn="TIPE_POTONGAN" />
+              <Mapping SourceColumn="JAM_AWAL_SPL" DataSetColumn="JAM_AWAL_SPL" />
+              <Mapping SourceColumn="JAM_AKHIR_SPL" DataSetColumn="JAM_AKHIR_SPL" />
+              <Mapping SourceColumn="JENIS_KERJA_SPL" DataSetColumn="JENIS_KERJA_SPL" />
+              <Mapping SourceColumn="JAM_MULAI_SPL_AWAL" DataSetColumn="JAM_MULAI_SPL_AWAL" />
+              <Mapping SourceColumn="JAM_SELESAI_SPL_AWAL" DataSetColumn="JAM_SELESAI_SPL_AWAL" />
+              <Mapping SourceColumn="JAM_MULAI_SPL_AKHIR" DataSetColumn="JAM_MULAI_SPL_AKHIR" />
+              <Mapping SourceColumn="JAM_SELESAI_SPL_AKHIR" DataSetColumn="JAM_SELESAI_SPL_AKHIR" />
+              <Mapping SourceColumn="LEMBUR_AWAL" DataSetColumn="LEMBUR_AWAL" />
+              <Mapping SourceColumn="LEMBUR_AKHIR" DataSetColumn="LEMBUR_AKHIR" />
+              <Mapping SourceColumn="TOTAL_LEMBUR" DataSetColumn="TOTAL_LEMBUR" />
+              <Mapping SourceColumn="LEMBUR_KERJA" DataSetColumn="LEMBUR_KERJA" />
+              <Mapping SourceColumn="LEMBUR_LIBUR" DataSetColumn="LEMBUR_LIBUR" />
+              <Mapping SourceColumn="LEMBUR_DIAKUI" DataSetColumn="LEMBUR_DIAKUI" />
+              <Mapping SourceColumn="UANG_MAKAN_LEMBUR" DataSetColumn="UANG_MAKAN_LEMBUR" />
+              <Mapping SourceColumn="KODE_LEMBUR" DataSetColumn="KODE_LEMBUR" />
+              <Mapping SourceColumn="KET_SINGKAT" DataSetColumn="KET_SINGKAT" />
+              <Mapping SourceColumn="KETERANGAN" DataSetColumn="KETERANGAN" />
+              <Mapping SourceColumn="TARIF_MAKAN" DataSetColumn="TARIF_MAKAN" />
+              <Mapping SourceColumn="MAKS_HARI_TERIMA_MAKAN" DataSetColumn="MAKS_HARI_TERIMA_MAKAN" />
+              <Mapping SourceColumn="TARIF_LEMBUR" DataSetColumn="TARIF_LEMBUR" />
+              <Mapping SourceColumn="PAJAK" DataSetColumn="PAJAK" />
+              <Mapping SourceColumn="NILAI_PAJAK" DataSetColumn="NILAI_PAJAK" />
+              <Mapping SourceColumn="KERJA" DataSetColumn="KERJA" />
+              <Mapping SourceColumn="MANGKIR" DataSetColumn="MANGKIR" />
+              <Mapping SourceColumn="TELAT" DataSetColumn="TELAT" />
+              <Mapping SourceColumn="CPTPLG" DataSetColumn="CPTPLG" />
+              <Mapping SourceColumn="LEMBUR" DataSetColumn="LEMBUR" />
+              <Mapping SourceColumn="MANUAL" DataSetColumn="MANUAL" />
+              <Mapping SourceColumn="MASUKLIBUR" DataSetColumn="MASUKLIBUR" />
+              <Mapping SourceColumn="IJIN" DataSetColumn="IJIN" />
+              <Mapping SourceColumn="MASUK" DataSetColumn="MASUK" />
+              <Mapping SourceColumn="ABSEN1X" DataSetColumn="ABSEN1X" />
+              <Mapping SourceColumn="CUTI" DataSetColumn="CUTI" />
+              <Mapping SourceColumn="IJIN_JAM" DataSetColumn="IJIN_JAM" />
+              <Mapping SourceColumn="TELAT_IJIN" DataSetColumn="TELAT_IJIN" />
+              <Mapping SourceColumn="CPTPLG_IJIN" DataSetColumn="CPTPLG_IJIN" />
+              <Mapping SourceColumn="HADIR_MAKAN" DataSetColumn="HADIR_MAKAN" />
+              <Mapping SourceColumn="POTONGTKK" DataSetColumn="POTONGTKK" />
+              <Mapping SourceColumn="EFEKTIF" DataSetColumn="EFEKTIF" />
+              <Mapping SourceColumn="JAM_TENGAH" DataSetColumn="JAM_TENGAH" />
+              <Mapping SourceColumn="HARI" DataSetColumn="HARI" />
+              <Mapping SourceColumn="STATUS_A" DataSetColumn="STATUS_A" />
+              <Mapping SourceColumn="STATUS_BAK" DataSetColumn="STATUS_BAK" />
+              <Mapping SourceColumn="STATUS_CB" DataSetColumn="STATUS_CB" />
+              <Mapping SourceColumn="STATUS_CBS" DataSetColumn="STATUS_CBS" />
+              <Mapping SourceColumn="STATUS_CB2" DataSetColumn="STATUS_CB2" />
+              <Mapping SourceColumn="STATUS_CB3" DataSetColumn="STATUS_CB3" />
+              <Mapping SourceColumn="STATUS_CB4" DataSetColumn="STATUS_CB4" />
+              <Mapping SourceColumn="STATUS_CDT" DataSetColumn="STATUS_CDT" />
+              <Mapping SourceColumn="STATUS_CP" DataSetColumn="STATUS_CP" />
+              <Mapping SourceColumn="STATUS_CPK" DataSetColumn="STATUS_CPK" />
+              <Mapping SourceColumn="STATUS_CS" DataSetColumn="STATUS_CS" />
+              <Mapping SourceColumn="STATUS_CS2" DataSetColumn="STATUS_CS2" />
+              <Mapping SourceColumn="status_tbl" DataSetColumn="status_tbl" />
+              <Mapping SourceColumn="STATUS_CSR" DataSetColumn="STATUS_CSR" />
+              <Mapping SourceColumn="STATUS_CSR2" DataSetColumn="STATUS_CSR2" />
+              <Mapping SourceColumn="STATUS_CT" DataSetColumn="STATUS_CT" />
+              <Mapping SourceColumn="STATUS_DL" DataSetColumn="STATUS_DL" />
+              <Mapping SourceColumn="STATUS_LP" DataSetColumn="STATUS_LP" />
+              <Mapping SourceColumn="STATUS_MPJ" DataSetColumn="STATUS_MPJ" />
+              <Mapping SourceColumn="STATUS_MPP" DataSetColumn="STATUS_MPP" />
+              <Mapping SourceColumn="STATUS_PD" DataSetColumn="STATUS_PD" />
+              <Mapping SourceColumn="STATUS_SDR" DataSetColumn="STATUS_SDR" />
+              <Mapping SourceColumn="STATUS_TB" DataSetColumn="STATUS_TB" />
+              <Mapping SourceColumn="STATUS_T" DataSetColumn="STATUS_T" />
+              <Mapping SourceColumn="STATUS_S" DataSetColumn="STATUS_S" />
+              <Mapping SourceColumn="STATUS_SD" DataSetColumn="STATUS_SD" />
+              <Mapping SourceColumn="STATUS_I" DataSetColumn="STATUS_I" />
+              <Mapping SourceColumn="STATUS_TM" DataSetColumn="STATUS_TM" />
+              <Mapping SourceColumn="STATUS_PC" DataSetColumn="STATUS_PC" />
+              <Mapping SourceColumn="STATUS_TC" DataSetColumn="STATUS_TC" />
+              <Mapping SourceColumn="STATUS_HTT" DataSetColumn="STATUS_HTT" />
+              <Mapping SourceColumn="STATUS_TL" DataSetColumn="STATUS_TL" />
+              <Mapping SourceColumn="mmEFEKTIF" DataSetColumn="mmEFEKTIF" />
+              <Mapping SourceColumn="mmJAM_KERJA" DataSetColumn="mmJAM_KERJA" />
+              <Mapping SourceColumn="mmLEMBUR_AWAL" DataSetColumn="mmLEMBUR_AWAL" />
+              <Mapping SourceColumn="mmLEMBUR_AKHIR" DataSetColumn="mmLEMBUR_AKHIR" />
+              <Mapping SourceColumn="mmTOTAL_LEMBUR" DataSetColumn="mmTOTAL_LEMBUR" />
+              <Mapping SourceColumn="mmCEPAT_DATANG" DataSetColumn="mmCEPAT_DATANG" />
+              <Mapping SourceColumn="mmTERLAMBAT" DataSetColumn="mmTERLAMBAT" />
+              <Mapping SourceColumn="mmCEPAT_PULANG" DataSetColumn="mmCEPAT_PULANG" />
+              <Mapping SourceColumn="mmLAMBAT_PULANG" DataSetColumn="mmLAMBAT_PULANG" />
+              <Mapping SourceColumn="POTONGAN_TMPC" DataSetColumn="POTONGAN_TMPC" />
+              <Mapping SourceColumn="POTONGAN_CUTI" DataSetColumn="POTONGAN_CUTI" />
+              <Mapping SourceColumn="POTONGAN_DTCP" DataSetColumn="POTONGAN_DTCP" />
+              <Mapping SourceColumn="POTONGAN_MANGKIR" DataSetColumn="POTONGAN_MANGKIR" />
+              <Mapping SourceColumn="KODE_POTONGAN_PERINGATAN" DataSetColumn="KODE_POTONGAN_PERINGATAN" />
+              <Mapping SourceColumn="POTONGAN_PERINGATAN" DataSetColumn="POTONGAN_PERINGATAN" />
+              <Mapping SourceColumn="KODE_POTONGAN_HUKUMAN" DataSetColumn="KODE_POTONGAN_HUKUMAN" />
+              <Mapping SourceColumn="POTONGAN_HUKUMAN" DataSetColumn="POTONGAN_HUKUMAN" />
+              <Mapping SourceColumn="NAMA_CABANG" DataSetColumn="NAMA_CABANG" />
+              <Mapping SourceColumn="NAMA_DEPARTEMEN" DataSetColumn="NAMA_DEPARTEMEN" />
+              <Mapping SourceColumn="NAMA_INSTANSI" DataSetColumn="NAMA_INSTANSI" />
+              <Mapping SourceColumn="NAMA_UNIT" DataSetColumn="NAMA_UNIT" />
+              <Mapping SourceColumn="NAMA_DEPUTI" DataSetColumn="NAMA_DEPUTI" />
+              <Mapping SourceColumn="NAMA_BIRO" DataSetColumn="NAMA_BIRO" />
+              <Mapping SourceColumn="NAMA_BAGIAN" DataSetColumn="NAMA_BAGIAN" />
+              <Mapping SourceColumn="NAMA_SUBBAGIAN" DataSetColumn="NAMA_SUBBAGIAN" />
+              <Mapping SourceColumn="NAMA_JABATAN" DataSetColumn="NAMA_JABATAN" />
+              <Mapping SourceColumn="NAMA_GOLONGAN" DataSetColumn="NAMA_GOLONGAN" />
+              <Mapping SourceColumn="NAMA_ESELON" DataSetColumn="NAMA_ESELON" />
+              <Mapping SourceColumn="NAMA_STATUS_PEGAWAI" DataSetColumn="NAMA_STATUS_PEGAWAI" />
+              <Mapping SourceColumn="NAMA_GROUP" DataSetColumn="NAMA_GROUP" />
+              <Mapping SourceColumn="NILAI_GRADE" DataSetColumn="NILAI_GRADE" />
+              <Mapping SourceColumn="UM" DataSetColumn="UM" />
+              <Mapping SourceColumn="NAMA_SATKER" DataSetColumn="NAMA_SATKER" />
+              <Mapping SourceColumn="KODE_UPACARA" DataSetColumn="KODE_UPACARA" />
+              <Mapping SourceColumn="LAMBAT30" DataSetColumn="LAMBAT30" />
+              <Mapping SourceColumn="LAMBAT60" DataSetColumn="LAMBAT60" />
+              <Mapping SourceColumn="LAMBAT90" DataSetColumn="LAMBAT90" />
+              <Mapping SourceColumn="LAMBAT120" DataSetColumn="LAMBAT120" />
+              <Mapping SourceColumn="LAMBATXX" DataSetColumn="LAMBATXX" />
+              <Mapping SourceColumn="CEPATPULANG30" DataSetColumn="CEPATPULANG30" />
+              <Mapping SourceColumn="CEPATPULANG60" DataSetColumn="CEPATPULANG60" />
+              <Mapping SourceColumn="CEPATPULANG90" DataSetColumn="CEPATPULANG90" />
+              <Mapping SourceColumn="CEPATPULANG120" DataSetColumn="CEPATPULANG120" />
+              <Mapping SourceColumn="CEPATPULANGXX" DataSetColumn="CEPATPULANGXX" />
+              <Mapping SourceColumn="LAMBAT_IJINJAM30" DataSetColumn="LAMBAT_IJINJAM30" />
+              <Mapping SourceColumn="LAMBAT_IJINJAM60" DataSetColumn="LAMBAT_IJINJAM60" />
+              <Mapping SourceColumn="LAMBAT_IJINJAM90" DataSetColumn="LAMBAT_IJINJAM90" />
+              <Mapping SourceColumn="LAMBAT_IJINJAM120" DataSetColumn="LAMBAT_IJINJAM120" />
+              <Mapping SourceColumn="LAMBAT_IJINJAMXX" DataSetColumn="LAMBAT_IJINJAMXX" />
+              <Mapping SourceColumn="CEPATPULANG_IJINJAM30" DataSetColumn="CEPATPULANG_IJINJAM30" />
+              <Mapping SourceColumn="CEPATPULANG_IJINJAM60" DataSetColumn="CEPATPULANG_IJINJAM60" />
+              <Mapping SourceColumn="CEPATPULANG_IJINJAM90" DataSetColumn="CEPATPULANG_IJINJAM90" />
+              <Mapping SourceColumn="CEPATPULANG_IJINJAM120" DataSetColumn="CEPATPULANG_IJINJAM120" />
+              <Mapping SourceColumn="CEPATPULANG_IJINJAMXX" DataSetColumn="CEPATPULANG_IJINJAMXX" />
+              <Mapping SourceColumn="POTONGAN_LAMBAT01" DataSetColumn="POTONGAN_LAMBAT01" />
+              <Mapping SourceColumn="POTONGAN_LAMBAT02" DataSetColumn="POTONGAN_LAMBAT02" />
+              <Mapping SourceColumn="POTONGAN_LAMBAT03" DataSetColumn="POTONGAN_LAMBAT03" />
+              <Mapping SourceColumn="POTONGAN_LAMBAT04" DataSetColumn="POTONGAN_LAMBAT04" />
+              <Mapping SourceColumn="POTONGAN_CPTPLG01" DataSetColumn="POTONGAN_CPTPLG01" />
+              <Mapping SourceColumn="POTONGAN_CPTPLG02" DataSetColumn="POTONGAN_CPTPLG02" />
+              <Mapping SourceColumn="POTONGAN_CPTPLG03" DataSetColumn="POTONGAN_CPTPLG03" />
+              <Mapping SourceColumn="POTONGAN_CPTPLG04" DataSetColumn="POTONGAN_CPTPLG04" />
+              <Mapping SourceColumn="POTONGAN_ABSEN1X" DataSetColumn="POTONGAN_ABSEN1X" />
+              <Mapping SourceColumn="KET_POTONGAN" DataSetColumn="KET_POTONGAN" />
+              <Mapping SourceColumn="PROSEN_POTONGAN" DataSetColumn="PROSEN_POTONGAN" />
+              <Mapping SourceColumn="UANG_MAKAN" DataSetColumn="UANG_MAKAN" />
+              <Mapping SourceColumn="QURBAN_TOTAL_MENIT_KURANG" DataSetColumn="QURBAN_TOTAL_MENIT_KURANG" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataRealDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataRealDataSet" msprop:Generator_UserDSName="DataRealDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="q_AbsenHarianDetil" msprop:Generator_TableClassName="q_AbsenHarianDetilDataTable" msprop:Generator_TableVarName="tableq_AbsenHarianDetil" msprop:Generator_TablePropName="q_AbsenHarianDetil" msprop:Generator_RowDeletingName="q_AbsenHarianDetilRowDeleting" msprop:Generator_RowChangingName="q_AbsenHarianDetilRowChanging" msprop:Generator_RowEvHandlerName="q_AbsenHarianDetilRowChangeEventHandler" msprop:Generator_RowDeletedName="q_AbsenHarianDetilRowDeleted" msprop:Generator_UserTableName="q_AbsenHarianDetil" msprop:Generator_RowChangedName="q_AbsenHarianDetilRowChanged" msprop:Generator_RowEvArgName="q_AbsenHarianDetilRowChangeEvent" msprop:Generator_RowClassName="q_AbsenHarianDetilRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NIP" msprop:Generator_ColumnVarNameInTable="columnNIP" msprop:Generator_ColumnPropNameInRow="NIP" msprop:Generator_ColumnPropNameInTable="NIPColumn" msprop:Generator_UserColumnName="NIP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NIP_BARU" msprop:Generator_ColumnVarNameInTable="columnNIP_BARU" msprop:Generator_ColumnPropNameInRow="NIP_BARU" msprop:Generator_ColumnPropNameInTable="NIP_BARUColumn" msprop:Generator_UserColumnName="NIP_BARU" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PIN" msprop:Generator_ColumnVarNameInTable="columnPIN" msprop:Generator_ColumnPropNameInRow="PIN" msprop:Generator_ColumnPropNameInTable="PINColumn" msprop:Generator_UserColumnName="PIN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NPWP" msprop:Generator_ColumnVarNameInTable="columnNPWP" msprop:Generator_ColumnPropNameInRow="NPWP" msprop:Generator_ColumnPropNameInTable="NPWPColumn" msprop:Generator_UserColumnName="NPWP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_CABANG" msprop:Generator_ColumnVarNameInTable="columnKODE_CABANG" msprop:Generator_ColumnPropNameInRow="KODE_CABANG" msprop:Generator_ColumnPropNameInTable="KODE_CABANGColumn" msprop:Generator_UserColumnName="KODE_CABANG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_DEPARTEMEN" msprop:Generator_ColumnVarNameInTable="columnKODE_DEPARTEMEN" msprop:Generator_ColumnPropNameInRow="KODE_DEPARTEMEN" msprop:Generator_ColumnPropNameInTable="KODE_DEPARTEMENColumn" msprop:Generator_UserColumnName="KODE_DEPARTEMEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_INSTANSI" msprop:Generator_ColumnVarNameInTable="columnKODE_INSTANSI" msprop:Generator_ColumnPropNameInRow="KODE_INSTANSI" msprop:Generator_ColumnPropNameInTable="KODE_INSTANSIColumn" msprop:Generator_UserColumnName="KODE_INSTANSI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_UNIT" msprop:Generator_ColumnVarNameInTable="columnKODE_UNIT" msprop:Generator_ColumnPropNameInRow="KODE_UNIT" msprop:Generator_ColumnPropNameInTable="KODE_UNITColumn" msprop:Generator_UserColumnName="KODE_UNIT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_DEPUTI" msprop:Generator_ColumnVarNameInTable="columnKODE_DEPUTI" msprop:Generator_ColumnPropNameInRow="KODE_DEPUTI" msprop:Generator_ColumnPropNameInTable="KODE_DEPUTIColumn" msprop:Generator_UserColumnName="KODE_DEPUTI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_BIRO" msprop:Generator_ColumnVarNameInTable="columnKODE_BIRO" msprop:Generator_ColumnPropNameInRow="KODE_BIRO" msprop:Generator_ColumnPropNameInTable="KODE_BIROColumn" msprop:Generator_UserColumnName="KODE_BIRO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_BAGIAN" msprop:Generator_ColumnVarNameInTable="columnKODE_BAGIAN" msprop:Generator_ColumnPropNameInRow="KODE_BAGIAN" msprop:Generator_ColumnPropNameInTable="KODE_BAGIANColumn" msprop:Generator_UserColumnName="KODE_BAGIAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_SUBBAGIAN" msprop:Generator_ColumnVarNameInTable="columnKODE_SUBBAGIAN" msprop:Generator_ColumnPropNameInRow="KODE_SUBBAGIAN" msprop:Generator_ColumnPropNameInTable="KODE_SUBBAGIANColumn" msprop:Generator_UserColumnName="KODE_SUBBAGIAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_JABATAN" msprop:Generator_ColumnVarNameInTable="columnKODE_JABATAN" msprop:Generator_ColumnPropNameInRow="KODE_JABATAN" msprop:Generator_ColumnPropNameInTable="KODE_JABATANColumn" msprop:Generator_UserColumnName="KODE_JABATAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_GOLONGAN" msprop:Generator_ColumnVarNameInTable="columnKODE_GOLONGAN" msprop:Generator_ColumnPropNameInRow="KODE_GOLONGAN" msprop:Generator_ColumnPropNameInTable="KODE_GOLONGANColumn" msprop:Generator_UserColumnName="KODE_GOLONGAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_GRADE" msprop:Generator_ColumnVarNameInTable="columnKODE_GRADE" msprop:Generator_ColumnPropNameInRow="KODE_GRADE" msprop:Generator_ColumnPropNameInTable="KODE_GRADEColumn" msprop:Generator_UserColumnName="KODE_GRADE" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="KODE_ESELON" msprop:Generator_ColumnVarNameInTable="columnKODE_ESELON" msprop:Generator_ColumnPropNameInRow="KODE_ESELON" msprop:Generator_ColumnPropNameInTable="KODE_ESELONColumn" msprop:Generator_UserColumnName="KODE_ESELON" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_SATKER" msprop:Generator_ColumnVarNameInTable="columnKODE_SATKER" msprop:Generator_ColumnPropNameInRow="KODE_SATKER" msprop:Generator_ColumnPropNameInTable="KODE_SATKERColumn" msprop:Generator_UserColumnName="KODE_SATKER" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_STATUS_PEGAWAI" msprop:Generator_ColumnVarNameInTable="columnKODE_STATUS_PEGAWAI" msprop:Generator_ColumnPropNameInRow="KODE_STATUS_PEGAWAI" msprop:Generator_ColumnPropNameInTable="KODE_STATUS_PEGAWAIColumn" msprop:Generator_UserColumnName="KODE_STATUS_PEGAWAI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAP_KEUANGAN" msprop:Generator_ColumnVarNameInTable="columnLAP_KEUANGAN" msprop:Generator_ColumnPropNameInRow="LAP_KEUANGAN" msprop:Generator_ColumnPropNameInTable="LAP_KEUANGANColumn" msprop:Generator_UserColumnName="LAP_KEUANGAN" type="xs:boolean" minOccurs="0" />
+              <xs:element name="KODE_SHIFT" msprop:Generator_ColumnVarNameInTable="columnKODE_SHIFT" msprop:Generator_ColumnPropNameInRow="KODE_SHIFT" msprop:Generator_ColumnPropNameInTable="KODE_SHIFTColumn" msprop:Generator_UserColumnName="KODE_SHIFT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA" msprop:Generator_ColumnVarNameInTable="columnNAMA" msprop:Generator_ColumnPropNameInRow="NAMA" msprop:Generator_ColumnPropNameInTable="NAMAColumn" msprop:Generator_UserColumnName="NAMA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOREK_BANK" msprop:Generator_ColumnVarNameInTable="columnNOREK_BANK" msprop:Generator_ColumnPropNameInRow="NOREK_BANK" msprop:Generator_ColumnPropNameInTable="NOREK_BANKColumn" msprop:Generator_UserColumnName="NOREK_BANK" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TGL_MASUK" msprop:Generator_ColumnVarNameInTable="columnTGL_MASUK" msprop:Generator_ColumnPropNameInRow="TGL_MASUK" msprop:Generator_ColumnPropNameInTable="TGL_MASUKColumn" msprop:Generator_UserColumnName="TGL_MASUK" type="xs:dateTime" />
+              <xs:element name="JAM_MASUK" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJAM_MASUK" msprop:Generator_ColumnPropNameInRow="JAM_MASUK" msprop:Generator_ColumnPropNameInTable="JAM_MASUKColumn" msprop:Generator_UserColumnName="JAM_MASUK" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_KELUAR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJAM_KELUAR" msprop:Generator_ColumnPropNameInRow="JAM_KELUAR" msprop:Generator_ColumnPropNameInTable="JAM_KELUARColumn" msprop:Generator_UserColumnName="JAM_KELUAR" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ISI_MANUAL" msprop:Generator_ColumnVarNameInTable="columnISI_MANUAL" msprop:Generator_ColumnPropNameInRow="ISI_MANUAL" msprop:Generator_ColumnPropNameInTable="ISI_MANUALColumn" msprop:Generator_UserColumnName="ISI_MANUAL" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_ABSEN" msprop:Generator_ColumnVarNameInTable="columnKODE_ABSEN" msprop:Generator_ColumnPropNameInRow="KODE_ABSEN" msprop:Generator_ColumnPropNameInTable="KODE_ABSENColumn" msprop:Generator_UserColumnName="KODE_ABSEN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_RANGE" msprop:Generator_ColumnVarNameInTable="columnKODE_RANGE" msprop:Generator_ColumnPropNameInRow="KODE_RANGE" msprop:Generator_ColumnPropNameInTable="KODE_RANGEColumn" msprop:Generator_UserColumnName="KODE_RANGE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JAM_AWAL" msprop:Generator_ColumnVarNameInTable="columnJAM_AWAL" msprop:Generator_ColumnPropNameInRow="JAM_AWAL" msprop:Generator_ColumnPropNameInTable="JAM_AWALColumn" msprop:Generator_UserColumnName="JAM_AWAL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_AKHIR" msprop:Generator_ColumnVarNameInTable="columnJAM_AKHIR" msprop:Generator_ColumnPropNameInRow="JAM_AKHIR" msprop:Generator_ColumnPropNameInTable="JAM_AKHIRColumn" msprop:Generator_UserColumnName="JAM_AKHIR" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_KERJA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJAM_KERJA" msprop:Generator_ColumnPropNameInRow="JAM_KERJA" msprop:Generator_ColumnPropNameInTable="JAM_KERJAColumn" msprop:Generator_UserColumnName="JAM_KERJA" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_ISTIRAHAT" msprop:Generator_ColumnVarNameInTable="columnJAM_ISTIRAHAT" msprop:Generator_ColumnPropNameInRow="JAM_ISTIRAHAT" msprop:Generator_ColumnPropNameInTable="JAM_ISTIRAHATColumn" msprop:Generator_UserColumnName="JAM_ISTIRAHAT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CEPAT_DATANG" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPAT_DATANG" msprop:Generator_ColumnPropNameInRow="CEPAT_DATANG" msprop:Generator_ColumnPropNameInTable="CEPAT_DATANGColumn" msprop:Generator_UserColumnName="CEPAT_DATANG" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TERLAMBAT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTERLAMBAT" msprop:Generator_ColumnPropNameInRow="TERLAMBAT" msprop:Generator_ColumnPropNameInTable="TERLAMBATColumn" msprop:Generator_UserColumnName="TERLAMBAT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CEPAT_PULANG" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPAT_PULANG" msprop:Generator_ColumnPropNameInRow="CEPAT_PULANG" msprop:Generator_ColumnPropNameInTable="CEPAT_PULANGColumn" msprop:Generator_UserColumnName="CEPAT_PULANG" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAMBAT_PULANG" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMBAT_PULANG" msprop:Generator_ColumnPropNameInRow="LAMBAT_PULANG" msprop:Generator_ColumnPropNameInTable="LAMBAT_PULANGColumn" msprop:Generator_UserColumnName="LAMBAT_PULANG" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="WAKTU_FLEXI" msprop:Generator_ColumnVarNameInTable="columnWAKTU_FLEXI" msprop:Generator_ColumnPropNameInRow="WAKTU_FLEXI" msprop:Generator_ColumnPropNameInTable="WAKTU_FLEXIColumn" msprop:Generator_UserColumnName="WAKTU_FLEXI" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="LAMA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMA" msprop:Generator_ColumnPropNameInRow="LAMA" msprop:Generator_ColumnPropNameInTable="LAMAColumn" msprop:Generator_UserColumnName="LAMA" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAMBAT_IJIN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMBAT_IJIN" msprop:Generator_ColumnPropNameInRow="LAMBAT_IJIN" msprop:Generator_ColumnPropNameInTable="LAMBAT_IJINColumn" msprop:Generator_UserColumnName="LAMBAT_IJIN" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CEPATPULANG_IJIN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPATPULANG_IJIN" msprop:Generator_ColumnPropNameInRow="CEPATPULANG_IJIN" msprop:Generator_ColumnPropNameInTable="CEPATPULANG_IJINColumn" msprop:Generator_UserColumnName="CEPATPULANG_IJIN" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAMA_IJIN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMA_IJIN" msprop:Generator_ColumnPropNameInRow="LAMA_IJIN" msprop:Generator_ColumnPropNameInTable="LAMA_IJINColumn" msprop:Generator_UserColumnName="LAMA_IJIN" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAMA_IJINTENGAH" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMA_IJINTENGAH" msprop:Generator_ColumnPropNameInRow="LAMA_IJINTENGAH" msprop:Generator_ColumnPropNameInTable="LAMA_IJINTENGAHColumn" msprop:Generator_UserColumnName="LAMA_IJINTENGAH" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="KODE_IJIN" msprop:Generator_ColumnVarNameInTable="columnKODE_IJIN" msprop:Generator_ColumnPropNameInRow="KODE_IJIN" msprop:Generator_ColumnPropNameInTable="KODE_IJINColumn" msprop:Generator_UserColumnName="KODE_IJIN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KET_IJIN" msprop:Generator_ColumnVarNameInTable="columnKET_IJIN" msprop:Generator_ColumnPropNameInRow="KET_IJIN" msprop:Generator_ColumnPropNameInTable="KET_IJINColumn" msprop:Generator_UserColumnName="KET_IJIN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_TIDAK_HADIR" msprop:Generator_ColumnVarNameInTable="columnKODE_TIDAK_HADIR" msprop:Generator_ColumnPropNameInRow="KODE_TIDAK_HADIR" msprop:Generator_ColumnPropNameInTable="KODE_TIDAK_HADIRColumn" msprop:Generator_UserColumnName="KODE_TIDAK_HADIR" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BUKTI_IJIN" msprop:Generator_ColumnVarNameInTable="columnBUKTI_IJIN" msprop:Generator_ColumnPropNameInRow="BUKTI_IJIN" msprop:Generator_ColumnPropNameInTable="BUKTI_IJINColumn" msprop:Generator_UserColumnName="BUKTI_IJIN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JAM_AWAL_IJIN" msprop:Generator_ColumnVarNameInTable="columnJAM_AWAL_IJIN" msprop:Generator_ColumnPropNameInRow="JAM_AWAL_IJIN" msprop:Generator_ColumnPropNameInTable="JAM_AWAL_IJINColumn" msprop:Generator_UserColumnName="JAM_AWAL_IJIN" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_AKHIR_IJIN" msprop:Generator_ColumnVarNameInTable="columnJAM_AKHIR_IJIN" msprop:Generator_ColumnPropNameInRow="JAM_AKHIR_IJIN" msprop:Generator_ColumnPropNameInTable="JAM_AKHIR_IJINColumn" msprop:Generator_UserColumnName="JAM_AKHIR_IJIN" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IJIN_DINAS" msprop:Generator_ColumnVarNameInTable="columnIJIN_DINAS" msprop:Generator_ColumnPropNameInRow="IJIN_DINAS" msprop:Generator_ColumnPropNameInTable="IJIN_DINASColumn" msprop:Generator_UserColumnName="IJIN_DINAS" type="xs:boolean" minOccurs="0" />
+              <xs:element name="POTONGAN_TKK" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_TKK" msprop:Generator_ColumnPropNameInRow="POTONGAN_TKK" msprop:Generator_ColumnPropNameInTable="POTONGAN_TKKColumn" msprop:Generator_UserColumnName="POTONGAN_TKK" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="JAM_MULAI_IJIN_AWAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJAM_MULAI_IJIN_AWAL" msprop:Generator_ColumnPropNameInRow="JAM_MULAI_IJIN_AWAL" msprop:Generator_ColumnPropNameInTable="JAM_MULAI_IJIN_AWALColumn" msprop:Generator_UserColumnName="JAM_MULAI_IJIN_AWAL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_SELESAI_IJIN_AWAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJAM_SELESAI_IJIN_AWAL" msprop:Generator_ColumnPropNameInRow="JAM_SELESAI_IJIN_AWAL" msprop:Generator_ColumnPropNameInTable="JAM_SELESAI_IJIN_AWALColumn" msprop:Generator_UserColumnName="JAM_SELESAI_IJIN_AWAL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_MULAI_IJIN_AKHIR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJAM_MULAI_IJIN_AKHIR" msprop:Generator_ColumnPropNameInRow="JAM_MULAI_IJIN_AKHIR" msprop:Generator_ColumnPropNameInTable="JAM_MULAI_IJIN_AKHIRColumn" msprop:Generator_UserColumnName="JAM_MULAI_IJIN_AKHIR" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_SELESAI_IJIN_AKHIR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJAM_SELESAI_IJIN_AKHIR" msprop:Generator_ColumnPropNameInRow="JAM_SELESAI_IJIN_AKHIR" msprop:Generator_ColumnPropNameInTable="JAM_SELESAI_IJIN_AKHIRColumn" msprop:Generator_UserColumnName="JAM_SELESAI_IJIN_AKHIR" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="KET_LIBUR" msprop:Generator_ColumnVarNameInTable="columnKET_LIBUR" msprop:Generator_ColumnPropNameInRow="KET_LIBUR" msprop:Generator_ColumnPropNameInTable="KET_LIBURColumn" msprop:Generator_UserColumnName="KET_LIBUR" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_POTONGAN" msprop:Generator_ColumnVarNameInTable="columnKODE_POTONGAN" msprop:Generator_ColumnPropNameInRow="KODE_POTONGAN" msprop:Generator_ColumnPropNameInTable="KODE_POTONGANColumn" msprop:Generator_UserColumnName="KODE_POTONGAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PERSEN_POTONGAN" msprop:Generator_ColumnVarNameInTable="columnPERSEN_POTONGAN" msprop:Generator_ColumnPropNameInRow="PERSEN_POTONGAN" msprop:Generator_ColumnPropNameInTable="PERSEN_POTONGANColumn" msprop:Generator_UserColumnName="PERSEN_POTONGAN" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="TIPE_POTONGAN" msprop:Generator_ColumnVarNameInTable="columnTIPE_POTONGAN" msprop:Generator_ColumnPropNameInRow="TIPE_POTONGAN" msprop:Generator_ColumnPropNameInTable="TIPE_POTONGANColumn" msprop:Generator_UserColumnName="TIPE_POTONGAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JAM_AWAL_SPL" msprop:Generator_ColumnVarNameInTable="columnJAM_AWAL_SPL" msprop:Generator_ColumnPropNameInRow="JAM_AWAL_SPL" msprop:Generator_ColumnPropNameInTable="JAM_AWAL_SPLColumn" msprop:Generator_UserColumnName="JAM_AWAL_SPL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_AKHIR_SPL" msprop:Generator_ColumnVarNameInTable="columnJAM_AKHIR_SPL" msprop:Generator_ColumnPropNameInRow="JAM_AKHIR_SPL" msprop:Generator_ColumnPropNameInTable="JAM_AKHIR_SPLColumn" msprop:Generator_UserColumnName="JAM_AKHIR_SPL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JENIS_KERJA_SPL" msprop:Generator_ColumnVarNameInTable="columnJENIS_KERJA_SPL" msprop:Generator_ColumnPropNameInRow="JENIS_KERJA_SPL" msprop:Generator_ColumnPropNameInTable="JENIS_KERJA_SPLColumn" msprop:Generator_UserColumnName="JENIS_KERJA_SPL" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JAM_MULAI_SPL_AWAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJAM_MULAI_SPL_AWAL" msprop:Generator_ColumnPropNameInRow="JAM_MULAI_SPL_AWAL" msprop:Generator_ColumnPropNameInTable="JAM_MULAI_SPL_AWALColumn" msprop:Generator_UserColumnName="JAM_MULAI_SPL_AWAL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_SELESAI_SPL_AWAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJAM_SELESAI_SPL_AWAL" msprop:Generator_ColumnPropNameInRow="JAM_SELESAI_SPL_AWAL" msprop:Generator_ColumnPropNameInTable="JAM_SELESAI_SPL_AWALColumn" msprop:Generator_UserColumnName="JAM_SELESAI_SPL_AWAL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_MULAI_SPL_AKHIR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJAM_MULAI_SPL_AKHIR" msprop:Generator_ColumnPropNameInRow="JAM_MULAI_SPL_AKHIR" msprop:Generator_ColumnPropNameInTable="JAM_MULAI_SPL_AKHIRColumn" msprop:Generator_UserColumnName="JAM_MULAI_SPL_AKHIR" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_SELESAI_SPL_AKHIR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJAM_SELESAI_SPL_AKHIR" msprop:Generator_ColumnPropNameInRow="JAM_SELESAI_SPL_AKHIR" msprop:Generator_ColumnPropNameInTable="JAM_SELESAI_SPL_AKHIRColumn" msprop:Generator_UserColumnName="JAM_SELESAI_SPL_AKHIR" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LEMBUR_AWAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLEMBUR_AWAL" msprop:Generator_ColumnPropNameInRow="LEMBUR_AWAL" msprop:Generator_ColumnPropNameInTable="LEMBUR_AWALColumn" msprop:Generator_UserColumnName="LEMBUR_AWAL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LEMBUR_AKHIR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLEMBUR_AKHIR" msprop:Generator_ColumnPropNameInRow="LEMBUR_AKHIR" msprop:Generator_ColumnPropNameInTable="LEMBUR_AKHIRColumn" msprop:Generator_UserColumnName="LEMBUR_AKHIR" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TOTAL_LEMBUR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTOTAL_LEMBUR" msprop:Generator_ColumnPropNameInRow="TOTAL_LEMBUR" msprop:Generator_ColumnPropNameInTable="TOTAL_LEMBURColumn" msprop:Generator_UserColumnName="TOTAL_LEMBUR" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LEMBUR_KERJA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLEMBUR_KERJA" msprop:Generator_ColumnPropNameInRow="LEMBUR_KERJA" msprop:Generator_ColumnPropNameInTable="LEMBUR_KERJAColumn" msprop:Generator_UserColumnName="LEMBUR_KERJA" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="LEMBUR_LIBUR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLEMBUR_LIBUR" msprop:Generator_ColumnPropNameInRow="LEMBUR_LIBUR" msprop:Generator_ColumnPropNameInTable="LEMBUR_LIBURColumn" msprop:Generator_UserColumnName="LEMBUR_LIBUR" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="LEMBUR_DIAKUI" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLEMBUR_DIAKUI" msprop:Generator_ColumnPropNameInRow="LEMBUR_DIAKUI" msprop:Generator_ColumnPropNameInTable="LEMBUR_DIAKUIColumn" msprop:Generator_UserColumnName="LEMBUR_DIAKUI" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="UANG_MAKAN_LEMBUR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUANG_MAKAN_LEMBUR" msprop:Generator_ColumnPropNameInRow="UANG_MAKAN_LEMBUR" msprop:Generator_ColumnPropNameInTable="UANG_MAKAN_LEMBURColumn" msprop:Generator_UserColumnName="UANG_MAKAN_LEMBUR" type="xs:int" minOccurs="0" />
+              <xs:element name="KODE_LEMBUR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKODE_LEMBUR" msprop:Generator_ColumnPropNameInRow="KODE_LEMBUR" msprop:Generator_ColumnPropNameInTable="KODE_LEMBURColumn" msprop:Generator_UserColumnName="KODE_LEMBUR" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KET_SINGKAT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKET_SINGKAT" msprop:Generator_ColumnPropNameInRow="KET_SINGKAT" msprop:Generator_ColumnPropNameInTable="KET_SINGKATColumn" msprop:Generator_UserColumnName="KET_SINGKAT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KETERANGAN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKETERANGAN" msprop:Generator_ColumnPropNameInRow="KETERANGAN" msprop:Generator_ColumnPropNameInTable="KETERANGANColumn" msprop:Generator_UserColumnName="KETERANGAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TARIF_MAKAN" msprop:Generator_ColumnVarNameInTable="columnTARIF_MAKAN" msprop:Generator_ColumnPropNameInRow="TARIF_MAKAN" msprop:Generator_ColumnPropNameInTable="TARIF_MAKANColumn" msprop:Generator_UserColumnName="TARIF_MAKAN" type="xs:int" minOccurs="0" />
+              <xs:element name="MAKS_HARI_TERIMA_MAKAN" msprop:Generator_ColumnVarNameInTable="columnMAKS_HARI_TERIMA_MAKAN" msprop:Generator_ColumnPropNameInRow="MAKS_HARI_TERIMA_MAKAN" msprop:Generator_ColumnPropNameInTable="MAKS_HARI_TERIMA_MAKANColumn" msprop:Generator_UserColumnName="MAKS_HARI_TERIMA_MAKAN" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="TARIF_LEMBUR" msprop:Generator_ColumnVarNameInTable="columnTARIF_LEMBUR" msprop:Generator_ColumnPropNameInRow="TARIF_LEMBUR" msprop:Generator_ColumnPropNameInTable="TARIF_LEMBURColumn" msprop:Generator_UserColumnName="TARIF_LEMBUR" type="xs:int" minOccurs="0" />
+              <xs:element name="PAJAK" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPAJAK" msprop:Generator_ColumnPropNameInRow="PAJAK" msprop:Generator_ColumnPropNameInTable="PAJAKColumn" msprop:Generator_UserColumnName="PAJAK" type="xs:int" minOccurs="0" />
+              <xs:element name="NILAI_PAJAK" msprop:Generator_ColumnVarNameInTable="columnNILAI_PAJAK" msprop:Generator_ColumnPropNameInRow="NILAI_PAJAK" msprop:Generator_ColumnPropNameInTable="NILAI_PAJAKColumn" msprop:Generator_UserColumnName="NILAI_PAJAK" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="KERJA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKERJA" msprop:Generator_ColumnPropNameInRow="KERJA" msprop:Generator_ColumnPropNameInTable="KERJAColumn" msprop:Generator_UserColumnName="KERJA" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="MANGKIR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMANGKIR" msprop:Generator_ColumnPropNameInRow="MANGKIR" msprop:Generator_ColumnPropNameInTable="MANGKIRColumn" msprop:Generator_UserColumnName="MANGKIR" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="TELAT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTELAT" msprop:Generator_ColumnPropNameInRow="TELAT" msprop:Generator_ColumnPropNameInTable="TELATColumn" msprop:Generator_UserColumnName="TELAT" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="CPTPLG" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCPTPLG" msprop:Generator_ColumnPropNameInRow="CPTPLG" msprop:Generator_ColumnPropNameInTable="CPTPLGColumn" msprop:Generator_UserColumnName="CPTPLG" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="LEMBUR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLEMBUR" msprop:Generator_ColumnPropNameInRow="LEMBUR" msprop:Generator_ColumnPropNameInTable="LEMBURColumn" msprop:Generator_UserColumnName="LEMBUR" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="MANUAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMANUAL" msprop:Generator_ColumnPropNameInRow="MANUAL" msprop:Generator_ColumnPropNameInTable="MANUALColumn" msprop:Generator_UserColumnName="MANUAL" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="MASUKLIBUR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMASUKLIBUR" msprop:Generator_ColumnPropNameInRow="MASUKLIBUR" msprop:Generator_ColumnPropNameInTable="MASUKLIBURColumn" msprop:Generator_UserColumnName="MASUKLIBUR" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="IJIN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIJIN" msprop:Generator_ColumnPropNameInRow="IJIN" msprop:Generator_ColumnPropNameInTable="IJINColumn" msprop:Generator_UserColumnName="IJIN" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="MASUK" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMASUK" msprop:Generator_ColumnPropNameInRow="MASUK" msprop:Generator_ColumnPropNameInTable="MASUKColumn" msprop:Generator_UserColumnName="MASUK" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="ABSEN1X" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnABSEN1X" msprop:Generator_ColumnPropNameInRow="ABSEN1X" msprop:Generator_ColumnPropNameInTable="ABSEN1XColumn" msprop:Generator_UserColumnName="ABSEN1X" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="CUTI" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCUTI" msprop:Generator_ColumnPropNameInRow="CUTI" msprop:Generator_ColumnPropNameInTable="CUTIColumn" msprop:Generator_UserColumnName="CUTI" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="IJIN_JAM" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIJIN_JAM" msprop:Generator_ColumnPropNameInRow="IJIN_JAM" msprop:Generator_ColumnPropNameInTable="IJIN_JAMColumn" msprop:Generator_UserColumnName="IJIN_JAM" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="TELAT_IJIN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTELAT_IJIN" msprop:Generator_ColumnPropNameInRow="TELAT_IJIN" msprop:Generator_ColumnPropNameInTable="TELAT_IJINColumn" msprop:Generator_UserColumnName="TELAT_IJIN" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="CPTPLG_IJIN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCPTPLG_IJIN" msprop:Generator_ColumnPropNameInRow="CPTPLG_IJIN" msprop:Generator_ColumnPropNameInTable="CPTPLG_IJINColumn" msprop:Generator_UserColumnName="CPTPLG_IJIN" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="HADIR_MAKAN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHADIR_MAKAN" msprop:Generator_ColumnPropNameInRow="HADIR_MAKAN" msprop:Generator_ColumnPropNameInTable="HADIR_MAKANColumn" msprop:Generator_UserColumnName="HADIR_MAKAN" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="POTONGTKK" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPOTONGTKK" msprop:Generator_ColumnPropNameInRow="POTONGTKK" msprop:Generator_ColumnPropNameInTable="POTONGTKKColumn" msprop:Generator_UserColumnName="POTONGTKK" type="xs:int" minOccurs="0" />
+              <xs:element name="EFEKTIF" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEFEKTIF" msprop:Generator_ColumnPropNameInRow="EFEKTIF" msprop:Generator_ColumnPropNameInTable="EFEKTIFColumn" msprop:Generator_UserColumnName="EFEKTIF" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JAM_TENGAH" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJAM_TENGAH" msprop:Generator_ColumnPropNameInRow="JAM_TENGAH" msprop:Generator_ColumnPropNameInTable="JAM_TENGAHColumn" msprop:Generator_UserColumnName="JAM_TENGAH" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="HARI" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHARI" msprop:Generator_ColumnPropNameInRow="HARI" msprop:Generator_ColumnPropNameInTable="HARIColumn" msprop:Generator_UserColumnName="HARI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="STATUS_A" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_A" msprop:Generator_ColumnPropNameInRow="STATUS_A" msprop:Generator_ColumnPropNameInTable="STATUS_AColumn" msprop:Generator_UserColumnName="STATUS_A" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_BAK" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_BAK" msprop:Generator_ColumnPropNameInRow="STATUS_BAK" msprop:Generator_ColumnPropNameInTable="STATUS_BAKColumn" msprop:Generator_UserColumnName="STATUS_BAK" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_CB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CB" msprop:Generator_ColumnPropNameInRow="STATUS_CB" msprop:Generator_ColumnPropNameInTable="STATUS_CBColumn" msprop:Generator_UserColumnName="STATUS_CB" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_CBS" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CBS" msprop:Generator_ColumnPropNameInRow="STATUS_CBS" msprop:Generator_ColumnPropNameInTable="STATUS_CBSColumn" msprop:Generator_UserColumnName="STATUS_CBS" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_CB2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CB2" msprop:Generator_ColumnPropNameInRow="STATUS_CB2" msprop:Generator_ColumnPropNameInTable="STATUS_CB2Column" msprop:Generator_UserColumnName="STATUS_CB2" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_CB3" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CB3" msprop:Generator_ColumnPropNameInRow="STATUS_CB3" msprop:Generator_ColumnPropNameInTable="STATUS_CB3Column" msprop:Generator_UserColumnName="STATUS_CB3" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_CB4" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CB4" msprop:Generator_ColumnPropNameInRow="STATUS_CB4" msprop:Generator_ColumnPropNameInTable="STATUS_CB4Column" msprop:Generator_UserColumnName="STATUS_CB4" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_CDT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CDT" msprop:Generator_ColumnPropNameInRow="STATUS_CDT" msprop:Generator_ColumnPropNameInTable="STATUS_CDTColumn" msprop:Generator_UserColumnName="STATUS_CDT" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_CP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CP" msprop:Generator_ColumnPropNameInRow="STATUS_CP" msprop:Generator_ColumnPropNameInTable="STATUS_CPColumn" msprop:Generator_UserColumnName="STATUS_CP" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_CPK" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CPK" msprop:Generator_ColumnPropNameInRow="STATUS_CPK" msprop:Generator_ColumnPropNameInTable="STATUS_CPKColumn" msprop:Generator_UserColumnName="STATUS_CPK" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_CS" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CS" msprop:Generator_ColumnPropNameInRow="STATUS_CS" msprop:Generator_ColumnPropNameInTable="STATUS_CSColumn" msprop:Generator_UserColumnName="STATUS_CS" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_CS2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CS2" msprop:Generator_ColumnPropNameInRow="STATUS_CS2" msprop:Generator_ColumnPropNameInTable="STATUS_CS2Column" msprop:Generator_UserColumnName="STATUS_CS2" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="status_tbl" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnstatus_tbl" msprop:Generator_ColumnPropNameInRow="status_tbl" msprop:Generator_ColumnPropNameInTable="status_tblColumn" msprop:Generator_UserColumnName="status_tbl" type="xs:int" minOccurs="0" />
+              <xs:element name="STATUS_CSR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CSR" msprop:Generator_ColumnPropNameInRow="STATUS_CSR" msprop:Generator_ColumnPropNameInTable="STATUS_CSRColumn" msprop:Generator_UserColumnName="STATUS_CSR" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_CSR2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CSR2" msprop:Generator_ColumnPropNameInRow="STATUS_CSR2" msprop:Generator_ColumnPropNameInTable="STATUS_CSR2Column" msprop:Generator_UserColumnName="STATUS_CSR2" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_CT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_CT" msprop:Generator_ColumnPropNameInRow="STATUS_CT" msprop:Generator_ColumnPropNameInTable="STATUS_CTColumn" msprop:Generator_UserColumnName="STATUS_CT" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_DL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_DL" msprop:Generator_ColumnPropNameInRow="STATUS_DL" msprop:Generator_ColumnPropNameInTable="STATUS_DLColumn" msprop:Generator_UserColumnName="STATUS_DL" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_LP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_LP" msprop:Generator_ColumnPropNameInRow="STATUS_LP" msprop:Generator_ColumnPropNameInTable="STATUS_LPColumn" msprop:Generator_UserColumnName="STATUS_LP" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_MPJ" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_MPJ" msprop:Generator_ColumnPropNameInRow="STATUS_MPJ" msprop:Generator_ColumnPropNameInTable="STATUS_MPJColumn" msprop:Generator_UserColumnName="STATUS_MPJ" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_MPP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_MPP" msprop:Generator_ColumnPropNameInRow="STATUS_MPP" msprop:Generator_ColumnPropNameInTable="STATUS_MPPColumn" msprop:Generator_UserColumnName="STATUS_MPP" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_PD" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_PD" msprop:Generator_ColumnPropNameInRow="STATUS_PD" msprop:Generator_ColumnPropNameInTable="STATUS_PDColumn" msprop:Generator_UserColumnName="STATUS_PD" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_SDR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_SDR" msprop:Generator_ColumnPropNameInRow="STATUS_SDR" msprop:Generator_ColumnPropNameInTable="STATUS_SDRColumn" msprop:Generator_UserColumnName="STATUS_SDR" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_TB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_TB" msprop:Generator_ColumnPropNameInRow="STATUS_TB" msprop:Generator_ColumnPropNameInTable="STATUS_TBColumn" msprop:Generator_UserColumnName="STATUS_TB" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_T" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_T" msprop:Generator_ColumnPropNameInRow="STATUS_T" msprop:Generator_ColumnPropNameInTable="STATUS_TColumn" msprop:Generator_UserColumnName="STATUS_T" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_S" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_S" msprop:Generator_ColumnPropNameInRow="STATUS_S" msprop:Generator_ColumnPropNameInTable="STATUS_SColumn" msprop:Generator_UserColumnName="STATUS_S" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_SD" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_SD" msprop:Generator_ColumnPropNameInRow="STATUS_SD" msprop:Generator_ColumnPropNameInTable="STATUS_SDColumn" msprop:Generator_UserColumnName="STATUS_SD" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_I" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_I" msprop:Generator_ColumnPropNameInRow="STATUS_I" msprop:Generator_ColumnPropNameInTable="STATUS_IColumn" msprop:Generator_UserColumnName="STATUS_I" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_TM" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_TM" msprop:Generator_ColumnPropNameInRow="STATUS_TM" msprop:Generator_ColumnPropNameInTable="STATUS_TMColumn" msprop:Generator_UserColumnName="STATUS_TM" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_PC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_PC" msprop:Generator_ColumnPropNameInRow="STATUS_PC" msprop:Generator_ColumnPropNameInTable="STATUS_PCColumn" msprop:Generator_UserColumnName="STATUS_PC" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_TC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_TC" msprop:Generator_ColumnPropNameInRow="STATUS_TC" msprop:Generator_ColumnPropNameInTable="STATUS_TCColumn" msprop:Generator_UserColumnName="STATUS_TC" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_HTT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_HTT" msprop:Generator_ColumnPropNameInRow="STATUS_HTT" msprop:Generator_ColumnPropNameInTable="STATUS_HTTColumn" msprop:Generator_UserColumnName="STATUS_HTT" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="STATUS_TL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTATUS_TL" msprop:Generator_ColumnPropNameInRow="STATUS_TL" msprop:Generator_ColumnPropNameInTable="STATUS_TLColumn" msprop:Generator_UserColumnName="STATUS_TL" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="mmEFEKTIF" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmmEFEKTIF" msprop:Generator_ColumnPropNameInRow="mmEFEKTIF" msprop:Generator_ColumnPropNameInTable="mmEFEKTIFColumn" msprop:Generator_UserColumnName="mmEFEKTIF" type="xs:int" minOccurs="0" />
+              <xs:element name="mmJAM_KERJA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmmJAM_KERJA" msprop:Generator_ColumnPropNameInRow="mmJAM_KERJA" msprop:Generator_ColumnPropNameInTable="mmJAM_KERJAColumn" msprop:Generator_UserColumnName="mmJAM_KERJA" type="xs:int" minOccurs="0" />
+              <xs:element name="mmLEMBUR_AWAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmmLEMBUR_AWAL" msprop:Generator_ColumnPropNameInRow="mmLEMBUR_AWAL" msprop:Generator_ColumnPropNameInTable="mmLEMBUR_AWALColumn" msprop:Generator_UserColumnName="mmLEMBUR_AWAL" type="xs:int" minOccurs="0" />
+              <xs:element name="mmLEMBUR_AKHIR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmmLEMBUR_AKHIR" msprop:Generator_ColumnPropNameInRow="mmLEMBUR_AKHIR" msprop:Generator_ColumnPropNameInTable="mmLEMBUR_AKHIRColumn" msprop:Generator_UserColumnName="mmLEMBUR_AKHIR" type="xs:int" minOccurs="0" />
+              <xs:element name="mmTOTAL_LEMBUR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmmTOTAL_LEMBUR" msprop:Generator_ColumnPropNameInRow="mmTOTAL_LEMBUR" msprop:Generator_ColumnPropNameInTable="mmTOTAL_LEMBURColumn" msprop:Generator_UserColumnName="mmTOTAL_LEMBUR" type="xs:short" minOccurs="0" />
+              <xs:element name="mmCEPAT_DATANG" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmmCEPAT_DATANG" msprop:Generator_ColumnPropNameInRow="mmCEPAT_DATANG" msprop:Generator_ColumnPropNameInTable="mmCEPAT_DATANGColumn" msprop:Generator_UserColumnName="mmCEPAT_DATANG" type="xs:int" minOccurs="0" />
+              <xs:element name="mmTERLAMBAT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmmTERLAMBAT" msprop:Generator_ColumnPropNameInRow="mmTERLAMBAT" msprop:Generator_ColumnPropNameInTable="mmTERLAMBATColumn" msprop:Generator_UserColumnName="mmTERLAMBAT" type="xs:int" minOccurs="0" />
+              <xs:element name="mmCEPAT_PULANG" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmmCEPAT_PULANG" msprop:Generator_ColumnPropNameInRow="mmCEPAT_PULANG" msprop:Generator_ColumnPropNameInTable="mmCEPAT_PULANGColumn" msprop:Generator_UserColumnName="mmCEPAT_PULANG" type="xs:int" minOccurs="0" />
+              <xs:element name="mmLAMBAT_PULANG" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmmLAMBAT_PULANG" msprop:Generator_ColumnPropNameInRow="mmLAMBAT_PULANG" msprop:Generator_ColumnPropNameInTable="mmLAMBAT_PULANGColumn" msprop:Generator_UserColumnName="mmLAMBAT_PULANG" type="xs:int" minOccurs="0" />
+              <xs:element name="POTONGAN_TMPC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_TMPC" msprop:Generator_ColumnPropNameInRow="POTONGAN_TMPC" msprop:Generator_ColumnPropNameInTable="POTONGAN_TMPCColumn" msprop:Generator_UserColumnName="POTONGAN_TMPC" type="xs:double" minOccurs="0" />
+              <xs:element name="POTONGAN_CUTI" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_CUTI" msprop:Generator_ColumnPropNameInRow="POTONGAN_CUTI" msprop:Generator_ColumnPropNameInTable="POTONGAN_CUTIColumn" msprop:Generator_UserColumnName="POTONGAN_CUTI" type="xs:double" minOccurs="0" />
+              <xs:element name="POTONGAN_DTCP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_DTCP" msprop:Generator_ColumnPropNameInRow="POTONGAN_DTCP" msprop:Generator_ColumnPropNameInTable="POTONGAN_DTCPColumn" msprop:Generator_UserColumnName="POTONGAN_DTCP" type="xs:double" minOccurs="0" />
+              <xs:element name="POTONGAN_MANGKIR" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_MANGKIR" msprop:Generator_ColumnPropNameInRow="POTONGAN_MANGKIR" msprop:Generator_ColumnPropNameInTable="POTONGAN_MANGKIRColumn" msprop:Generator_UserColumnName="POTONGAN_MANGKIR" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="KODE_POTONGAN_PERINGATAN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKODE_POTONGAN_PERINGATAN" msprop:Generator_ColumnPropNameInRow="KODE_POTONGAN_PERINGATAN" msprop:Generator_ColumnPropNameInTable="KODE_POTONGAN_PERINGATANColumn" msprop:Generator_UserColumnName="KODE_POTONGAN_PERINGATAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="POTONGAN_PERINGATAN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_PERINGATAN" msprop:Generator_ColumnPropNameInRow="POTONGAN_PERINGATAN" msprop:Generator_ColumnPropNameInTable="POTONGAN_PERINGATANColumn" msprop:Generator_UserColumnName="POTONGAN_PERINGATAN" type="xs:int" minOccurs="0" />
+              <xs:element name="KODE_POTONGAN_HUKUMAN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKODE_POTONGAN_HUKUMAN" msprop:Generator_ColumnPropNameInRow="KODE_POTONGAN_HUKUMAN" msprop:Generator_ColumnPropNameInTable="KODE_POTONGAN_HUKUMANColumn" msprop:Generator_UserColumnName="KODE_POTONGAN_HUKUMAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="POTONGAN_HUKUMAN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_HUKUMAN" msprop:Generator_ColumnPropNameInRow="POTONGAN_HUKUMAN" msprop:Generator_ColumnPropNameInTable="POTONGAN_HUKUMANColumn" msprop:Generator_UserColumnName="POTONGAN_HUKUMAN" type="xs:int" minOccurs="0" />
+              <xs:element name="NAMA_CABANG" msprop:Generator_ColumnVarNameInTable="columnNAMA_CABANG" msprop:Generator_ColumnPropNameInRow="NAMA_CABANG" msprop:Generator_ColumnPropNameInTable="NAMA_CABANGColumn" msprop:Generator_UserColumnName="NAMA_CABANG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA_DEPARTEMEN" msprop:Generator_ColumnVarNameInTable="columnNAMA_DEPARTEMEN" msprop:Generator_ColumnPropNameInRow="NAMA_DEPARTEMEN" msprop:Generator_ColumnPropNameInTable="NAMA_DEPARTEMENColumn" msprop:Generator_UserColumnName="NAMA_DEPARTEMEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA_INSTANSI" msprop:Generator_ColumnVarNameInTable="columnNAMA_INSTANSI" msprop:Generator_ColumnPropNameInRow="NAMA_INSTANSI" msprop:Generator_ColumnPropNameInTable="NAMA_INSTANSIColumn" msprop:Generator_UserColumnName="NAMA_INSTANSI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA_UNIT" msprop:Generator_ColumnVarNameInTable="columnNAMA_UNIT" msprop:Generator_ColumnPropNameInRow="NAMA_UNIT" msprop:Generator_ColumnPropNameInTable="NAMA_UNITColumn" msprop:Generator_UserColumnName="NAMA_UNIT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA_DEPUTI" msprop:Generator_ColumnVarNameInTable="columnNAMA_DEPUTI" msprop:Generator_ColumnPropNameInRow="NAMA_DEPUTI" msprop:Generator_ColumnPropNameInTable="NAMA_DEPUTIColumn" msprop:Generator_UserColumnName="NAMA_DEPUTI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA_BIRO" msprop:Generator_ColumnVarNameInTable="columnNAMA_BIRO" msprop:Generator_ColumnPropNameInRow="NAMA_BIRO" msprop:Generator_ColumnPropNameInTable="NAMA_BIROColumn" msprop:Generator_UserColumnName="NAMA_BIRO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA_BAGIAN" msprop:Generator_ColumnVarNameInTable="columnNAMA_BAGIAN" msprop:Generator_ColumnPropNameInRow="NAMA_BAGIAN" msprop:Generator_ColumnPropNameInTable="NAMA_BAGIANColumn" msprop:Generator_UserColumnName="NAMA_BAGIAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="90" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA_SUBBAGIAN" msprop:Generator_ColumnVarNameInTable="columnNAMA_SUBBAGIAN" msprop:Generator_ColumnPropNameInRow="NAMA_SUBBAGIAN" msprop:Generator_ColumnPropNameInTable="NAMA_SUBBAGIANColumn" msprop:Generator_UserColumnName="NAMA_SUBBAGIAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="110" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA_JABATAN" msprop:Generator_ColumnVarNameInTable="columnNAMA_JABATAN" msprop:Generator_ColumnPropNameInRow="NAMA_JABATAN" msprop:Generator_ColumnPropNameInTable="NAMA_JABATANColumn" msprop:Generator_UserColumnName="NAMA_JABATAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA_GOLONGAN" msprop:Generator_ColumnVarNameInTable="columnNAMA_GOLONGAN" msprop:Generator_ColumnPropNameInRow="NAMA_GOLONGAN" msprop:Generator_ColumnPropNameInTable="NAMA_GOLONGANColumn" msprop:Generator_UserColumnName="NAMA_GOLONGAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA_ESELON" msprop:Generator_ColumnVarNameInTable="columnNAMA_ESELON" msprop:Generator_ColumnPropNameInRow="NAMA_ESELON" msprop:Generator_ColumnPropNameInTable="NAMA_ESELONColumn" msprop:Generator_UserColumnName="NAMA_ESELON" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA_STATUS_PEGAWAI" msprop:Generator_ColumnVarNameInTable="columnNAMA_STATUS_PEGAWAI" msprop:Generator_ColumnPropNameInRow="NAMA_STATUS_PEGAWAI" msprop:Generator_ColumnPropNameInTable="NAMA_STATUS_PEGAWAIColumn" msprop:Generator_UserColumnName="NAMA_STATUS_PEGAWAI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMA_GROUP" msprop:Generator_ColumnVarNameInTable="columnNAMA_GROUP" msprop:Generator_ColumnPropNameInRow="NAMA_GROUP" msprop:Generator_ColumnPropNameInTable="NAMA_GROUPColumn" msprop:Generator_UserColumnName="NAMA_GROUP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NILAI_GRADE" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNILAI_GRADE" msprop:Generator_ColumnPropNameInRow="NILAI_GRADE" msprop:Generator_ColumnPropNameInTable="NILAI_GRADEColumn" msprop:Generator_UserColumnName="NILAI_GRADE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="UM" msprop:Generator_ColumnVarNameInTable="columnUM" msprop:Generator_ColumnPropNameInRow="UM" msprop:Generator_ColumnPropNameInTable="UMColumn" msprop:Generator_UserColumnName="UM" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="NAMA_SATKER" msprop:Generator_ColumnVarNameInTable="columnNAMA_SATKER" msprop:Generator_ColumnPropNameInRow="NAMA_SATKER" msprop:Generator_ColumnPropNameInTable="NAMA_SATKERColumn" msprop:Generator_UserColumnName="NAMA_SATKER" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KODE_UPACARA" msprop:Generator_ColumnVarNameInTable="columnKODE_UPACARA" msprop:Generator_ColumnPropNameInRow="KODE_UPACARA" msprop:Generator_ColumnPropNameInTable="KODE_UPACARAColumn" msprop:Generator_UserColumnName="KODE_UPACARA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAMBAT30" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMBAT30" msprop:Generator_ColumnPropNameInRow="LAMBAT30" msprop:Generator_ColumnPropNameInTable="LAMBAT30Column" msprop:Generator_UserColumnName="LAMBAT30" type="xs:int" minOccurs="0" />
+              <xs:element name="LAMBAT60" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMBAT60" msprop:Generator_ColumnPropNameInRow="LAMBAT60" msprop:Generator_ColumnPropNameInTable="LAMBAT60Column" msprop:Generator_UserColumnName="LAMBAT60" type="xs:int" minOccurs="0" />
+              <xs:element name="LAMBAT90" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMBAT90" msprop:Generator_ColumnPropNameInRow="LAMBAT90" msprop:Generator_ColumnPropNameInTable="LAMBAT90Column" msprop:Generator_UserColumnName="LAMBAT90" type="xs:int" minOccurs="0" />
+              <xs:element name="LAMBAT120" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMBAT120" msprop:Generator_ColumnPropNameInRow="LAMBAT120" msprop:Generator_ColumnPropNameInTable="LAMBAT120Column" msprop:Generator_UserColumnName="LAMBAT120" type="xs:int" minOccurs="0" />
+              <xs:element name="LAMBATXX" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMBATXX" msprop:Generator_ColumnPropNameInRow="LAMBATXX" msprop:Generator_ColumnPropNameInTable="LAMBATXXColumn" msprop:Generator_UserColumnName="LAMBATXX" type="xs:int" minOccurs="0" />
+              <xs:element name="CEPATPULANG30" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPATPULANG30" msprop:Generator_ColumnPropNameInRow="CEPATPULANG30" msprop:Generator_ColumnPropNameInTable="CEPATPULANG30Column" msprop:Generator_UserColumnName="CEPATPULANG30" type="xs:int" minOccurs="0" />
+              <xs:element name="CEPATPULANG60" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPATPULANG60" msprop:Generator_ColumnPropNameInRow="CEPATPULANG60" msprop:Generator_ColumnPropNameInTable="CEPATPULANG60Column" msprop:Generator_UserColumnName="CEPATPULANG60" type="xs:int" minOccurs="0" />
+              <xs:element name="CEPATPULANG90" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPATPULANG90" msprop:Generator_ColumnPropNameInRow="CEPATPULANG90" msprop:Generator_ColumnPropNameInTable="CEPATPULANG90Column" msprop:Generator_UserColumnName="CEPATPULANG90" type="xs:int" minOccurs="0" />
+              <xs:element name="CEPATPULANG120" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPATPULANG120" msprop:Generator_ColumnPropNameInRow="CEPATPULANG120" msprop:Generator_ColumnPropNameInTable="CEPATPULANG120Column" msprop:Generator_UserColumnName="CEPATPULANG120" type="xs:int" minOccurs="0" />
+              <xs:element name="CEPATPULANGXX" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPATPULANGXX" msprop:Generator_ColumnPropNameInRow="CEPATPULANGXX" msprop:Generator_ColumnPropNameInTable="CEPATPULANGXXColumn" msprop:Generator_UserColumnName="CEPATPULANGXX" type="xs:int" minOccurs="0" />
+              <xs:element name="LAMBAT_IJINJAM30" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMBAT_IJINJAM30" msprop:Generator_ColumnPropNameInRow="LAMBAT_IJINJAM30" msprop:Generator_ColumnPropNameInTable="LAMBAT_IJINJAM30Column" msprop:Generator_UserColumnName="LAMBAT_IJINJAM30" type="xs:int" minOccurs="0" />
+              <xs:element name="LAMBAT_IJINJAM60" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMBAT_IJINJAM60" msprop:Generator_ColumnPropNameInRow="LAMBAT_IJINJAM60" msprop:Generator_ColumnPropNameInTable="LAMBAT_IJINJAM60Column" msprop:Generator_UserColumnName="LAMBAT_IJINJAM60" type="xs:int" minOccurs="0" />
+              <xs:element name="LAMBAT_IJINJAM90" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMBAT_IJINJAM90" msprop:Generator_ColumnPropNameInRow="LAMBAT_IJINJAM90" msprop:Generator_ColumnPropNameInTable="LAMBAT_IJINJAM90Column" msprop:Generator_UserColumnName="LAMBAT_IJINJAM90" type="xs:int" minOccurs="0" />
+              <xs:element name="LAMBAT_IJINJAM120" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMBAT_IJINJAM120" msprop:Generator_ColumnPropNameInRow="LAMBAT_IJINJAM120" msprop:Generator_ColumnPropNameInTable="LAMBAT_IJINJAM120Column" msprop:Generator_UserColumnName="LAMBAT_IJINJAM120" type="xs:int" minOccurs="0" />
+              <xs:element name="LAMBAT_IJINJAMXX" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAMBAT_IJINJAMXX" msprop:Generator_ColumnPropNameInRow="LAMBAT_IJINJAMXX" msprop:Generator_ColumnPropNameInTable="LAMBAT_IJINJAMXXColumn" msprop:Generator_UserColumnName="LAMBAT_IJINJAMXX" type="xs:int" minOccurs="0" />
+              <xs:element name="CEPATPULANG_IJINJAM30" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPATPULANG_IJINJAM30" msprop:Generator_ColumnPropNameInRow="CEPATPULANG_IJINJAM30" msprop:Generator_ColumnPropNameInTable="CEPATPULANG_IJINJAM30Column" msprop:Generator_UserColumnName="CEPATPULANG_IJINJAM30" type="xs:int" minOccurs="0" />
+              <xs:element name="CEPATPULANG_IJINJAM60" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPATPULANG_IJINJAM60" msprop:Generator_ColumnPropNameInRow="CEPATPULANG_IJINJAM60" msprop:Generator_ColumnPropNameInTable="CEPATPULANG_IJINJAM60Column" msprop:Generator_UserColumnName="CEPATPULANG_IJINJAM60" type="xs:int" minOccurs="0" />
+              <xs:element name="CEPATPULANG_IJINJAM90" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPATPULANG_IJINJAM90" msprop:Generator_ColumnPropNameInRow="CEPATPULANG_IJINJAM90" msprop:Generator_ColumnPropNameInTable="CEPATPULANG_IJINJAM90Column" msprop:Generator_UserColumnName="CEPATPULANG_IJINJAM90" type="xs:int" minOccurs="0" />
+              <xs:element name="CEPATPULANG_IJINJAM120" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPATPULANG_IJINJAM120" msprop:Generator_ColumnPropNameInRow="CEPATPULANG_IJINJAM120" msprop:Generator_ColumnPropNameInTable="CEPATPULANG_IJINJAM120Column" msprop:Generator_UserColumnName="CEPATPULANG_IJINJAM120" type="xs:int" minOccurs="0" />
+              <xs:element name="CEPATPULANG_IJINJAMXX" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCEPATPULANG_IJINJAMXX" msprop:Generator_ColumnPropNameInRow="CEPATPULANG_IJINJAMXX" msprop:Generator_ColumnPropNameInTable="CEPATPULANG_IJINJAMXXColumn" msprop:Generator_UserColumnName="CEPATPULANG_IJINJAMXX" type="xs:int" minOccurs="0" />
+              <xs:element name="POTONGAN_LAMBAT01" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_LAMBAT01" msprop:Generator_ColumnPropNameInRow="POTONGAN_LAMBAT01" msprop:Generator_ColumnPropNameInTable="POTONGAN_LAMBAT01Column" msprop:Generator_UserColumnName="POTONGAN_LAMBAT01" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="POTONGAN_LAMBAT02" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_LAMBAT02" msprop:Generator_ColumnPropNameInRow="POTONGAN_LAMBAT02" msprop:Generator_ColumnPropNameInTable="POTONGAN_LAMBAT02Column" msprop:Generator_UserColumnName="POTONGAN_LAMBAT02" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="POTONGAN_LAMBAT03" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_LAMBAT03" msprop:Generator_ColumnPropNameInRow="POTONGAN_LAMBAT03" msprop:Generator_ColumnPropNameInTable="POTONGAN_LAMBAT03Column" msprop:Generator_UserColumnName="POTONGAN_LAMBAT03" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="POTONGAN_LAMBAT04" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_LAMBAT04" msprop:Generator_ColumnPropNameInRow="POTONGAN_LAMBAT04" msprop:Generator_ColumnPropNameInTable="POTONGAN_LAMBAT04Column" msprop:Generator_UserColumnName="POTONGAN_LAMBAT04" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="POTONGAN_CPTPLG01" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_CPTPLG01" msprop:Generator_ColumnPropNameInRow="POTONGAN_CPTPLG01" msprop:Generator_ColumnPropNameInTable="POTONGAN_CPTPLG01Column" msprop:Generator_UserColumnName="POTONGAN_CPTPLG01" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="POTONGAN_CPTPLG02" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_CPTPLG02" msprop:Generator_ColumnPropNameInRow="POTONGAN_CPTPLG02" msprop:Generator_ColumnPropNameInTable="POTONGAN_CPTPLG02Column" msprop:Generator_UserColumnName="POTONGAN_CPTPLG02" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="POTONGAN_CPTPLG03" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_CPTPLG03" msprop:Generator_ColumnPropNameInRow="POTONGAN_CPTPLG03" msprop:Generator_ColumnPropNameInTable="POTONGAN_CPTPLG03Column" msprop:Generator_UserColumnName="POTONGAN_CPTPLG03" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="POTONGAN_CPTPLG04" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_CPTPLG04" msprop:Generator_ColumnPropNameInRow="POTONGAN_CPTPLG04" msprop:Generator_ColumnPropNameInTable="POTONGAN_CPTPLG04Column" msprop:Generator_UserColumnName="POTONGAN_CPTPLG04" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="POTONGAN_ABSEN1X" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPOTONGAN_ABSEN1X" msprop:Generator_ColumnPropNameInRow="POTONGAN_ABSEN1X" msprop:Generator_ColumnPropNameInTable="POTONGAN_ABSEN1XColumn" msprop:Generator_UserColumnName="POTONGAN_ABSEN1X" type="xs:int" minOccurs="0" />
+              <xs:element name="KET_POTONGAN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKET_POTONGAN" msprop:Generator_ColumnPropNameInRow="KET_POTONGAN" msprop:Generator_ColumnPropNameInTable="KET_POTONGANColumn" msprop:Generator_UserColumnName="KET_POTONGAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PROSEN_POTONGAN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPROSEN_POTONGAN" msprop:Generator_ColumnPropNameInRow="PROSEN_POTONGAN" msprop:Generator_ColumnPropNameInTable="PROSEN_POTONGANColumn" msprop:Generator_UserColumnName="PROSEN_POTONGAN" type="xs:double" minOccurs="0" />
+              <xs:element name="UANG_MAKAN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUANG_MAKAN" msprop:Generator_ColumnPropNameInRow="UANG_MAKAN" msprop:Generator_ColumnPropNameInTable="UANG_MAKANColumn" msprop:Generator_UserColumnName="UANG_MAKAN" type="xs:double" minOccurs="0" />
+              <xs:element name="QURBAN_TOTAL_MENIT_KURANG" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnQURBAN_TOTAL_MENIT_KURANG" msprop:Generator_ColumnPropNameInRow="QURBAN_TOTAL_MENIT_KURANG" msprop:Generator_ColumnPropNameInTable="QURBAN_TOTAL_MENIT_KURANGColumn" msprop:Generator_UserColumnName="QURBAN_TOTAL_MENIT_KURANG" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

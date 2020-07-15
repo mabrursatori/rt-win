@@ -1,0 +1,383 @@
+﻿using MaterialDesignThemes.Wpf;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using rtwin.lib;
+using rtwin.Model;
+using rtwin.View;
+using rtwin.View.customDialog;
+using Newtonsoft.Json;
+using System.ComponentModel;
+using System.Threading;
+using rtwin.dataQuery;
+namespace rtwin.View.master.shift
+{
+    /// <summary>
+    /// Interaction logic for shftMingguan.xaml
+    /// </summary>
+    public partial class shftMingguan : UserControl
+    {
+        bool isSqlServer, asc = true;
+        TextBlock bredcumb;
+        DialogHost dialogHost;
+        Frame frameContent, dialogContent;
+        Image LoadingContent;
+        koneksi con;
+        generateJson js;
+        string json = String.Empty, queryDelete = String.Empty, actionLog = String.Empty, username = String.Empty;
+        int AllDataGrid = 0, page = 0, HeightScress = 0;
+        string gradeID, uriTheme;
+        public shftMingguan(bool isSqlServer, TextBlock bredcumb, DialogHost dialogHost, Frame frameContent, Image LoadingContent, Frame dialogContent, string username, int HeightScress, string gradeID, string uriTheme)
+        {
+            this.isSqlServer = isSqlServer;
+            this.bredcumb = bredcumb;
+            this.dialogHost = dialogHost;
+            this.frameContent = frameContent;
+            this.LoadingContent = LoadingContent;
+            this.dialogContent = dialogContent;
+            this.con = new koneksi(isSqlServer);
+            this.js = new generateJson(isSqlServer);
+            this.username = username;
+            this.HeightScress = HeightScress;
+            this.gradeID = gradeID;
+            InitializeComponent();
+            generateComboBoxSortItem();
+            generateColumdgShiftMingguan(page, Int32.Parse((cmbJumData.SelectedItem as ComboBoxItem).Content.ToString()));
+            //MessageBox.Show(Height.ToString());
+            if (HeightScress < 600)
+            {
+                dgShiftMingguan.Height = 300;
+            }
+            else if (HeightScress > 600 && HeightScress < 700)
+            {
+                dgShiftMingguan.Height = 320;
+            }
+            else if (HeightScress > 700 && HeightScress < 800)
+            {
+                dgShiftMingguan.Height = 360;
+            }
+            else if (HeightScress > 800 && HeightScress < 900)
+            {
+                dgShiftMingguan.Height = 450;
+            }
+            //validasi role
+            if (gradeID != "1")
+            {
+                edit_header.Visibility = Visibility.Hidden;
+                hapus_header.Visibility = Visibility.Hidden;
+                btnAddData.Visibility = Visibility.Hidden;
+            }
+            this.uriTheme = uriTheme;
+            ResourceDictionary newRes = new ResourceDictionary();
+            newRes.Source = new Uri(uriTheme, UriKind.RelativeOrAbsolute);
+            this.Resources.MergedDictionaries.Clear();
+            this.Resources.MergedDictionaries.Add(newRes);
+        }
+        private void generateComboBoxSortItem()
+        {
+
+            cmbSort.Items.Add(new ComboBoxItem { Content = "Kode", Name = "KODE_SHIFT", IsSelected = true });
+            cmbSort.Items.Add(new ComboBoxItem { Content = "Nama Grup", Name = "NAMA_GROUP" });
+
+        }
+        private void generateColumdgShiftMingguan(int page, int jumData)
+        {
+
+            dgShiftMingguan.Columns.Add(new DataGridTextColumn { Header = "Kode ", Binding = new Binding("KODE_SHIFT"), DisplayIndex = 0 });
+            dgShiftMingguan.Columns.Add(new DataGridTextColumn { Header = "Nama Departemen", Binding = new Binding("NAMA_GROUP"), DisplayIndex = 1 });
+            dgShiftMingguan.Columns.Add(new DataGridTextColumn { Header = "Libur Nasional", Binding = new Binding("LIBUR_NASIONAL"), DisplayIndex = 2 });
+            dgShiftMingguan.Columns.Add(new DataGridTextColumn { Header = "Nama Satker", Binding = new Binding("NAMA_CABANG"), DisplayIndex = 3 });
+            dgShiftMingguan.Columns.Add(new DataGridTextColumn { Header = "Minggu", Binding = new Binding("Minggu"), DisplayIndex = 4 });
+            dgShiftMingguan.Columns.Add(new DataGridTextColumn { Header = "Senin", Binding = new Binding("Senin"), DisplayIndex = 5 });
+            dgShiftMingguan.Columns.Add(new DataGridTextColumn { Header = "Selasa", Binding = new Binding("Selasa"), DisplayIndex = 6 });
+            dgShiftMingguan.Columns.Add(new DataGridTextColumn { Header = "Rabu", Binding = new Binding("Rabu"), DisplayIndex = 7 });
+            dgShiftMingguan.Columns.Add(new DataGridTextColumn { Header = "Kamis", Binding = new Binding("Kamis"), DisplayIndex = 8 });
+            dgShiftMingguan.Columns.Add(new DataGridTextColumn { Header = "Jumat", Binding = new Binding("Jumat"), DisplayIndex = 9 });
+            dgShiftMingguan.Columns.Add(new DataGridTextColumn { Header = "Sabtu", Binding = new Binding("Sabtu"), DisplayIndex = 10 });
+            generateDatadgShiftMingguan(page, jumData, (cmbSort.SelectedItem as ComboBoxItem).Name.ToString());
+
+        }
+        private void generateDatadgShiftMingguan(int page, int jumData, string orderBy)
+        {
+
+            int pageTemp = (page * jumData) + 1;
+            int rangePage = (page + 1) * jumData;
+            int halaman = page + 1;
+            
+            
+            List<string> jumlah = con.getDataFromDatabase(Queryshift.getQueryCountDataGridShiftMingguan);
+            if (Int32.Parse(jumlah[0]) > 0)
+            {
+                string queryPaging = AriLib.createPaging(Queryshift.getQueryDataGridShiftMingguan(orderBy, AriLib.orderBy(asc)), pageTemp, rangePage, jumData,isSqlServer);
+
+                json = js.generateDataGridJson(queryPaging, jumlah[0]);
+
+                var data = JsonConvert.DeserializeObject<strukturDataPola>(json);
+                if (data.rows.Count > 0)
+                {
+                    dgShiftMingguan.Items.Clear();
+                    for (int i = 0; i < data.rows.Count; i++)
+                    {
+                        // MessageBox.Show(data.rows[i].KODE_RANGE.ToString());
+                        string liburNasional = "Tidak";
+                        if (Convert.ToBoolean(data.rows[i].LIBUR_NASIONAL))
+                        {
+                            liburNasional = "Ya";
+                        }
+                        dgShiftMingguan.Items.Add(new dataPolaMingguan { KODE_SHIFT = data.rows[i].KODE_SHIFT, NAMA_GROUP = data.rows[i].NAMA_GROUP, LIBUR_NASIONAL = liburNasional, KET_LIBUR = data.rows[i].LIBUR_NASIONAL, KODE_DEPARTEMEN = data.rows[i].KODE_DEPARTEMEN, NAMA_CABANG = data.rows[i].NAMA_CABANG, Senin = data.rows[i].Senin, Selasa = data.rows[i].Selasa, Rabu = data.rows[i].Rabu, Kamis = data.rows[i].Kamis, Jumat = data.rows[i].Jumat, Sabtu = data.rows[i].Sabtu,Minggu=data.rows[i].Minggu });
+
+                    }
+
+                }
+                AllDataGrid = Convert.ToInt32(jumlah[0]);
+                dari.Text = pageTemp.ToString();
+                sampai.Text = rangePage.ToString();
+                total.Text = (Convert.ToInt32(jumlah[0].ToString())).ToString();
+                cekbntPage(Convert.ToInt32(total.Text), jumData, halaman);
+            }
+            else
+            {
+                dgShiftMingguan.Items.Clear();
+                AllDataGrid = 0;
+                dari.Text = "0";
+                sampai.Text = "0";
+                total.Text = "0";
+                cekbntPage(Convert.ToInt32(total.Text), jumData, halaman);
+            }
+
+
+        }
+        private void cekbntPage(int totaldata, int jumData, int halaman)
+        {
+            if (totaldata != 0)
+            {
+                if (dari.Text == "1")
+                {
+                    firstPage.IsEnabled = false;
+                    prevPage.IsEnabled = false;
+                }
+                else
+                {
+                    firstPage.IsEnabled = true;
+                    prevPage.IsEnabled = true;
+                }
+                float tem = totaldata / jumData;
+                if (totaldata % jumData > 0)
+                {
+                    tem += 1;
+                }
+
+                if (tem == halaman)
+                {
+                    nextPage.IsEnabled = false;
+                    lastPage.IsEnabled = false;
+                }
+                else
+                {
+                    nextPage.IsEnabled = true;
+                    lastPage.IsEnabled = true;
+                }
+
+            }
+            else
+            {
+                nextPage.IsEnabled = false;
+                lastPage.IsEnabled = false;
+                firstPage.IsEnabled = false;
+                prevPage.IsEnabled = false;
+            }
+
+        }
+        private void BtnAddData_Click(object sender, RoutedEventArgs e)
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+
+            worker.DoWork += (o, a) =>
+            {
+
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    this.frameContent.Content = "";
+                    this.LoadingContent.Visibility = Visibility.Visible;
+
+
+                }), null);
+                //Thread.Sleep(new TimeSpan(0, 0, 5));
+                Thread.Sleep(new TimeSpan(0, 0, 1));
+            };
+
+            worker.RunWorkerCompleted += (o, a) =>
+            {
+                this.LoadingContent.Visibility = Visibility.Hidden;
+                //List<dataDetailTimeCard> data=String.;
+                string data = "";
+                frameContent.Content = new FormShiftMingguan(isSqlServer, true, reload, showDialog, data, username);
+
+            };
+            worker.RunWorkerAsync();
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+
+            worker.DoWork += (o, a) =>
+            {
+
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    this.frameContent.Content = "";
+                    this.LoadingContent.Visibility = Visibility.Visible;
+
+
+                }), null);
+                //Thread.Sleep(new TimeSpan(0, 0, 5));
+                Thread.Sleep(new TimeSpan(0, 0, 1));
+            };
+
+            worker.RunWorkerCompleted += (o, a) =>
+            {
+                this.LoadingContent.Visibility = Visibility.Hidden;
+                dataPolaMingguan data = ((FrameworkElement)sender).DataContext as dataPolaMingguan;
+                frameContent.Content = new FormShiftMingguan(isSqlServer, false, reload, showDialog, data.KODE_SHIFT, username);
+
+            };
+            worker.RunWorkerAsync();
+        }
+
+        private void Hapus_Click(object sender, RoutedEventArgs e)
+        {
+            dataPolaMingguan data = ((FrameworkElement)sender).DataContext as dataPolaMingguan;
+            this.queryDelete = Queryshift.getQueryDeleteShify(data.KODE_SHIFT);
+            this.actionLog = data.KODE_SHIFT;
+            dialogContent.Content = new alertDelete(hapus);
+            dialogHost.IsOpen = true;
+        }
+        void hapus()
+        {
+            string message = con.crudDatabase(queryDelete, "Data Berhasil Dihapus", "Data gagal Dihapus");
+            if (message == "Data Berhasil Dihapus")
+            {
+                con.createLog(username, "1123", actionLog);
+            }
+            dialogContent.Content = new alertDialog(message);
+            dialogHost.IsOpen = true;
+            reload();
+        }
+        private void NextPage_Click(object sender, RoutedEventArgs e)
+        {
+            page = page + 1;
+            generateDatadgShiftMingguan(page, Int32.Parse((cmbJumData.SelectedItem as ComboBoxItem).Content.ToString()), (cmbSort.SelectedItem as ComboBoxItem).Name.ToString());
+        }
+
+        private void CmbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string text = ((sender as ComboBox).SelectedItem as ComboBoxItem).Name as string;
+            if (text != null)
+            {
+                //MessageBox.Show(text);
+                generateDatadgShiftMingguan(page, Int32.Parse((cmbJumData.SelectedItem as ComboBoxItem).Content.ToString()), text);
+
+            }
+        }
+
+        private void LastPage_Click(object sender, RoutedEventArgs e)
+        {
+            float tem = AllDataGrid / Convert.ToInt32((cmbJumData.SelectedItem as ComboBoxItem).Content.ToString());
+
+            if (AllDataGrid % Convert.ToInt32((cmbJumData.SelectedItem as ComboBoxItem).Content.ToString()) == 0 )
+            {
+                tem = tem - 1;
+            }
+
+            generateDatadgShiftMingguan(Convert.ToInt32(tem), Int32.Parse((cmbJumData.SelectedItem as ComboBoxItem).Content.ToString()), (cmbSort.SelectedItem as ComboBoxItem).Name.ToString());
+            page = Convert.ToInt32(tem);
+        }
+
+        private void PrevPage_Click(object sender, RoutedEventArgs e)
+        {
+            if (page != 0)
+            {
+                page = page - 1;
+                generateDatadgShiftMingguan(page, Int32.Parse((cmbJumData.SelectedItem as ComboBoxItem).Content.ToString()), (cmbSort.SelectedItem as ComboBoxItem).Name.ToString());
+            }
+
+        }
+
+        private void FirstPage_Click(object sender, RoutedEventArgs e)
+        {
+            generateDatadgShiftMingguan(0, Int32.Parse((cmbJumData.SelectedItem as ComboBoxItem).Content.ToString()), (cmbSort.SelectedItem as ComboBoxItem).Name.ToString());
+            page = 0;
+        }
+
+        private void CmbJumData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            string text = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
+            if (text != null)
+            {
+                generateDatadgShiftMingguan(page, Int32.Parse(((sender as ComboBox).SelectedItem as ComboBoxItem).Content.ToString()), (cmbSort.SelectedItem as ComboBoxItem).Name.ToString());
+            }
+            //MessageBox.Show(((sender as ComboBox).SelectedItem as ComboBoxItem).Content.ToString());
+            // generateDatadgTimeCard(page, Int32.Parse(((sender as ComboBox).SelectedItem as ComboBoxItem).Content.ToString()));
+        }
+
+        private void BtnSort_Click(object sender, RoutedEventArgs e)
+        {
+            //this.Content = new PackIcon { Kind = PackIconKind.ArrowDown };
+            if (asc)
+            {
+                asc = false;
+                btnSort.Content = new PackIcon { Kind = PackIconKind.ArrowDown };
+            }
+            else
+            {
+                asc = true;
+                btnSort.Content = new PackIcon { Kind = PackIconKind.ArrowUp };
+            }
+            generateDatadgShiftMingguan(0, Int32.Parse((cmbJumData.SelectedItem as ComboBoxItem).Content.ToString()), (cmbSort.SelectedItem as ComboBoxItem).Name.ToString());
+        }
+        void reload()
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += (o, a) =>
+            {
+
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    this.frameContent.Content = "";
+                    this.LoadingContent.Visibility = Visibility.Visible;
+
+
+                }), null);
+                //Thread.Sleep(new TimeSpan(0, 0, 5));
+                Thread.Sleep(new TimeSpan(0, 0, 1));
+            };
+
+            worker.RunWorkerCompleted += (o, a) =>
+            {
+                this.LoadingContent.Visibility = Visibility.Hidden;
+                //List<dataDetailTimeCard> data=String.;
+               frameContent.Content = new shftMingguan(isSqlServer, bredcumb, dialogHost, frameContent, LoadingContent, dialogContent, username,HeightScress, gradeID, uriTheme);
+
+            };
+            worker.RunWorkerAsync();
+        }
+        void showDialog(string message)
+        {
+            dialogContent.Content = new alertDialog(message);
+            dialogHost.IsOpen = true;
+        }
+    }
+}

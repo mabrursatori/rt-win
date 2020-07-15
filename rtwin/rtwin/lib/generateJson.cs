@@ -1,0 +1,289 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.IO;
+using Newtonsoft.Json;
+using Npgsql;
+using Microsoft.Data.Sqlite;
+
+namespace rtwin.lib
+{
+    class generateJson
+    {
+        private bool isSqlServer;
+        //public string koneksiString = "Data Source=192.168.1.109;Initial Catalog = DataReal; User ID = rekabio; Password=Meinardi";
+        private koneksi koneksiString;
+        public generateJson(bool isSqlServer)
+        {
+            this.isSqlServer = isSqlServer;
+            this.koneksiString = new koneksi(isSqlServer);
+        }
+        public string generateDataJson(string query)
+        {
+            string temp = String.Empty;
+            if (isSqlServer)
+            {
+                temp = generateDataJsonSqlServer(query);
+            }
+            else
+            {
+                temp = generateDataJsonPostgreSql(query);
+            }
+            return temp;
+        }
+        public string generateDataGridJson(string query,string count)
+        {
+            string temp = String.Empty;
+            if (isSqlServer)
+            {
+                temp = generateDataGridJsonSqlServer(query,count);
+            }
+            else
+            {
+                temp = generateDataGridJsonPostgreSql(query,count);
+            }
+            return temp;
+        }
+        private string generateDataJsonPostgreSql(string query)
+        {
+            NpgsqlConnection con = new NpgsqlConnection(koneksiString.koneksiString);
+            NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+            string temp = String.Empty;
+            try
+            {
+
+                con.Open();
+                NpgsqlDataReader hasil = cmd.ExecuteReader();
+                StringBuilder sb = new StringBuilder();
+                StringWriter sw = new StringWriter(sb);
+                JsonWriter jsonWriter1 = new JsonTextWriter(sw);
+
+                jsonWriter1.WriteStartArray();
+                int a = 0;
+                while (hasil.Read())
+                {
+                    jsonWriter1.WriteStartObject();
+
+                    int field = hasil.FieldCount;
+                    for (int i = 0; i < field; i++)
+                    {
+                        jsonWriter1.WritePropertyName(hasil.GetName(i));
+                        jsonWriter1.WriteValue(hasil[i]);
+
+                    }
+
+                    jsonWriter1.WriteEndObject();
+                    a++;
+                }
+
+                jsonWriter1.WriteEndArray();
+                
+                temp = sb.ToString();
+                hasil.Close();
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                temp = generateJsonStatus(ex.Message.ToString(), query);
+            }
+            return temp;
+        }
+        private string generateDataJsonSqlServer(string query)
+        {
+            SqlConnection con = new SqlConnection(koneksiString.koneksiString);
+            SqlCommand cmd = new SqlCommand(query, con);
+            string temp = String.Empty;
+            try
+            {
+                
+                con.Open();
+                SqlDataReader hasil = cmd.ExecuteReader();
+                StringBuilder sb = new StringBuilder();
+                StringWriter sw = new StringWriter(sb);
+                JsonWriter jsonWriter1 = new JsonTextWriter(sw);
+
+                jsonWriter1.WriteStartArray();
+                while (hasil.Read())
+                {
+                    jsonWriter1.WriteStartObject();
+
+                    int field = hasil.FieldCount;
+                    for (int i = 0; i < field; i++)
+                    {
+                        jsonWriter1.WritePropertyName(hasil.GetName(i));
+                        jsonWriter1.WriteValue(hasil[i]);
+
+                    }
+
+                    jsonWriter1.WriteEndObject();
+                    
+                }
+
+                jsonWriter1.WriteEndArray();
+                
+                temp = sb.ToString();
+                hasil.Close();
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                temp= generateJsonStatus(ex.Message.ToString(),query);
+            }
+            return temp;
+        }
+
+        private string generateDataGridJsonPostgreSql(string query,string countData)
+        {
+            NpgsqlConnection con = new NpgsqlConnection(koneksiString.koneksiString);
+            NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+            string temp = String.Empty;
+            try
+            {
+
+                con.Open();
+                NpgsqlDataReader hasil = cmd.ExecuteReader();
+                StringBuilder sb = new StringBuilder();
+                StringWriter sw = new StringWriter(sb);
+                JsonWriter jsonWriter1 = new JsonTextWriter(sw);
+
+                jsonWriter1.WriteStartArray();
+                jsonWriter1.WriteStartObject();
+                jsonWriter1.WritePropertyName("jumlahData");
+                jsonWriter1.WriteValue(countData);
+                jsonWriter1.WriteEndObject();
+                int a = 0;
+                while (hasil.Read())
+                {
+                    jsonWriter1.WriteStartObject();
+
+                    int field = hasil.FieldCount;
+                    for (int i = 0; i < field; i++)
+                    {
+                        jsonWriter1.WritePropertyName(hasil.GetName(i));
+                        jsonWriter1.WriteValue(hasil[i]);
+
+                    }
+
+                    jsonWriter1.WriteEndObject();
+                    a++;
+                }
+
+                jsonWriter1.WriteEndArray();
+
+                temp = sb.ToString();
+                hasil.Close();
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                temp = generateJsonStatus(ex.Message.ToString(), query);
+            }
+            return temp;
+        }
+        private string generateDataGridJsonSqlServer(string query,string countData)
+        {
+            SqlConnection con = new SqlConnection(koneksiString.koneksiString);
+            SqlCommand cmd = new SqlCommand(query, con);
+            string temp = String.Empty;
+            try
+            {
+
+                con.Open();
+                SqlDataReader hasil = cmd.ExecuteReader();
+                StringBuilder sb = new StringBuilder();
+                StringWriter sw = new StringWriter(sb);
+                JsonWriter jsonWriter1 = new JsonTextWriter(sw);
+                jsonWriter1.WriteStartObject();
+                jsonWriter1.WritePropertyName("jumlahData");
+                jsonWriter1.WriteValue(countData);
+                jsonWriter1.WritePropertyName("rows");
+                jsonWriter1.WriteStartArray();
+               
+               
+                while (hasil.Read())
+                {
+                    jsonWriter1.WriteStartObject();
+
+                    int field = hasil.FieldCount;
+                    for (int i = 0; i < field; i++)
+                    {
+                        jsonWriter1.WritePropertyName(hasil.GetName(i));
+                        jsonWriter1.WriteValue(hasil[i]);
+
+                    }
+
+                    jsonWriter1.WriteEndObject();
+
+                }
+
+                jsonWriter1.WriteEndArray();
+                jsonWriter1.WriteEndObject();
+                temp = sb.ToString();
+                hasil.Close();
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                temp = generateJsonStatus(ex.Message.ToString(), query);
+            }
+            return temp;
+        }
+        /*public  string generateJsonSqlLite(string query)
+        {
+            string dataTemp = String.Empty;
+            SqliteConnection con = new SqliteConnection("Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "\\" + "RBLocalDB.db;Version=3;Count Changes=off;Journal Mode=off;Pooling=true;Cache Size=10000;Page Size=4096;Synchronous=off");
+            try
+            {
+                con.Open();
+                SqliteCommand cmd = new SqliteCommand(query, con);
+                SqliteDataReader hasil = cmd.ExecuteReader();
+                StringBuilder sb = new StringBuilder();
+                StringWriter sw = new StringWriter(sb);
+                JsonWriter jsonWriter1 = new JsonTextWriter(sw);
+
+                jsonWriter1.WriteStartArray();
+                while (hasil.Read())
+                {
+                    jsonWriter1.WriteStartObject();
+
+                    int field = hasil.FieldCount;
+                    for (int i = 0; i < field; i++)
+                    {
+                        jsonWriter1.WritePropertyName(hasil.GetName(i));
+                        jsonWriter1.WriteValue(hasil[i]);
+
+                    }
+
+                    jsonWriter1.WriteEndObject();
+                }
+                jsonWriter1.WriteEndArray();
+
+                dataTemp = sb.ToString();
+                hasil.Close();
+                con.Close();
+            }
+            catch (SqliteException ex)
+            {
+                dataTemp = generateJsonStatus(ex.Message.ToString(), query);
+            }
+            return dataTemp;
+        }*/
+        private string generateJsonStatus(string status, string query)
+        {
+            StringBuilder sb = new StringBuilder();
+            StringWriter sw = new StringWriter(sb);
+            JsonWriter jsonWriter1 = new JsonTextWriter(sw);
+            jsonWriter1.WriteStartObject();
+            jsonWriter1.WritePropertyName("Status");
+            jsonWriter1.WriteValue(status);
+            jsonWriter1.WritePropertyName("query");
+            jsonWriter1.WriteValue(query);
+            jsonWriter1.WriteEndObject();
+            string hasilGenerateString = sb.ToString();
+            return hasilGenerateString;
+        }
+    }
+}

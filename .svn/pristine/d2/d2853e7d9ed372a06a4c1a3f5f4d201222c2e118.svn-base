@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="rtwin.View.master.lembur.FormLemburOtomatis"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:rtwin.View.master.lembur"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="590" d:DesignWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170"></ColumnDefinition>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Margin="5,10,0,0" Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Row="0" Grid.Column="0"> Kode
+        </TextBlock>
+        <TextBox x:Name="txtKode" IsEnabled="False" Margin="5" Grid.Row="0" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+        <TextBlock Margin="5,10,0,0" Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Row="1" Grid.Column="0"> Nama Satker
+        </TextBlock>
+        <TextBox x:Name="txtNamaSatker" IsEnabled="False" Margin="5" Grid.Row="1" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+        <TextBlock Margin="5,10,0,0" Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Row="2" Grid.Column="0"> Lembur Otomatis
+        </TextBlock>
+        <ToggleButton HorizontalAlignment="Left" Margin="5" Grid.Row="2" Grid.Column="1" x:Name="chkLemburOtomatis" Style="{StaticResource MaterialDesignSwitchAccentToggleButton}" ToolTip="MaterialDesignSwitchAccentToggleButton" IsChecked="True" />
+
+        <TextBlock Margin="5,10,0,0" Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Row="3" Grid.Column="0"> Lembur Otomatis
+        </TextBlock>
+        <ToggleButton HorizontalAlignment="Left" Margin="5" Grid.Row="3" Grid.Column="1" x:Name="chkLemburLibur" Style="{StaticResource MaterialDesignSwitchAccentToggleButton}" ToolTip="MaterialDesignSwitchAccentToggleButton" IsChecked="True" />
+
+        <TextBlock Margin="5,10,0,0" Style="{StaticResource MaterialDesignSubheadingTextBlock}" Grid.Row="4" Grid.Column="0"> Perhitungan
+        </TextBlock>
+        <ComboBox x:Name="cmbPerhitungan" SelectedValuePath="Content" Margin="5" Grid.Row="4" Grid.Column="1"  />
+
+        <StackPanel Margin="10" Grid.Row="5" Grid.ColumnSpan="2"  Orientation="Horizontal" HorizontalAlignment="Left">
+            <Button x:Name="btnsave" Click="Btnsave_Click" Style="{StaticResource MaterialDesignRaisedButton}" Width="70" ToolTip="Resource name: MaterialDesignRaisedButton">
+                Save
+            </Button>
+            <Button x:Name="btnClose" Margin="10" Click="BtnClose_Click" Style="{StaticResource  MaterialDesignRaisedButton}" Background="Red" BorderBrush="Red" Width="70" ToolTip="Resource name: MaterialDesignRaisedButton">
+                Close
+            </Button>
+            <StackPanel Margin="0,10,0,0" Grid.Column="1" Orientation="Horizontal" x:Name="lodongSave"  Visibility="Hidden" >
+                <materialDesign:Card UniformCornerRadius="14" Padding="4"  >
+                    <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Value="50" IsIndeterminate="True" />
+                </materialDesign:Card>
+
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

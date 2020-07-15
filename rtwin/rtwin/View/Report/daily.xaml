@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="rtwin.View.Report.daily"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:rtwin.View.Report"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:controls="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="950" Height="523" Style="{StaticResource RectangleView}"/>
+        <GroupBox Header="Laporan Harian" Style="{DynamicResource MaterialDesignGroupBox}" Margin="5,10,67,94" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+            <ScrollViewer>
+                <Grid  VerticalAlignment="Top">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"></RowDefinition>
+                        <RowDefinition Height="47"/>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"></ColumnDefinition>
+                        <ColumnDefinition Width="220"></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition Width="0"></ColumnDefinition>
+                        <ColumnDefinition Width="220"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Margin="10,15,11,15"  Style="{StaticResource MaterialDesignBody2TextBlock}" Grid.Column="0" VerticalAlignment="Center" Height="17" Grid.RowSpan="2">Tanggal</TextBlock>
+                    <DatePicker x:Name="dtTanggal" Grid.Row="0" Grid.Column="1" Margin="10,10,0,0"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Height="37" Grid.RowSpan="2" />
+
+                    <Grid Grid.Row="2" Grid.ColumnSpan="5" Background="#FFE2E4E4"  Margin="0 20 0 0">
+                        <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}"  VerticalAlignment="Center" Margin="10 0 0 0">Filter</TextBlock>
+
+                    </Grid>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="10" Style="{StaticResource MaterialDesignBody2TextBlock}">NIP</TextBlock>
+                    <ScrollViewer  Grid.Row="3" x:Name="svNip" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="10"
+                      HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Column="1">
+                        <StackPanel HorizontalAlignment="Center" Width="auto" Orientation="Vertical" >
+                            <controls:TextBoxSuggestions TextBoxSuggestionsSource="{Binding Path=TextBoxSuggestionsSource}">
+                                <TextBox Width="290" HorizontalAlignment="Left" x:Name="txtNip" materialDesign:HintAssist.Hint="Masukan Nama Atau Nip"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Text="{Binding Path=Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </controls:TextBoxSuggestions>
+                        </StackPanel>
+                    </ScrollViewer>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Margin="10" Style="{StaticResource MaterialDesignBody2TextBlock}" >Deputi</TextBlock>
+                    <ComboBox x:Name="cmbDeputi" DropDownClosed="cmbDeputi_DropDownClosed" Grid.Row="4" Grid.Column="1" Margin="10,10,7,10" Height="28"/>
+
+                    <TextBlock Grid.Row="5" Grid.Column="0" Margin="10" Style="{StaticResource MaterialDesignBody2TextBlock}" >Bagian/Bidang</TextBlock>
+                    <ComboBox x:Name="cmbBagian" DropDownClosed="cmbBagian_DropDownClosed" Grid.Row="5" Grid.Column="1" Margin="10,10,7,10" Height="28"  />
+
+                    <TextBlock Grid.Row="6" Grid.Column="0" Margin="10" Style="{StaticResource MaterialDesignBody2TextBlock}" >Jabatan</TextBlock>
+                    <ComboBox x:Name="cmbJabatan" Grid.Row="6" Grid.Column="1" Margin="10,10,7,10" Height="28"/>
+
+                    <TextBlock Grid.Row="7" Grid.Column="0" Margin="10" Style="{StaticResource MaterialDesignBody2TextBlock}" >Grade</TextBlock>
+                    <ComboBox x:Name="cmbGrade" Grid.Row="7" Grid.Column="1" Margin="10,10,7,10" Height="28" />
+
+                    <TextBlock Grid.Row="8" Grid.Column="0" Margin="10" Style="{StaticResource MaterialDesignBody2TextBlock}" >Status</TextBlock>
+                    <ComboBox x:Name="cmbStatus" Grid.Row="8" Grid.Column="1" Margin="10,10,7,10" Height="28"/>
+
+                    <TreeView MinWidth="220" Grid.Row="9" Grid.ColumnSpan="2"/>
+
+                    <TreeView MinWidth="220" Grid.Row="10" Grid.ColumnSpan="2"/>
+
+                    <TreeView MinWidth="220" Grid.Row="11" Grid.ColumnSpan="2"/>
+                    <Button Click="BtnTampilkan_Click" Grid.Row="12" Height="Auto"  ToolTip="MaterialDesignRaisedButton with Round Corners"  materialDesign:ButtonAssist.CornerRadius="10" Margin="12 5 0 0" Style="{StaticResource MaterialDesignRaisedButton}" Content="Tampilkan"/>
+
+
+
+
+                    <!---kanan-->
+
+
+                    <TextBlock Grid.Row="4" Grid.Column="2" Margin="31,20,0,0" Style="{StaticResource MaterialDesignBody2TextBlock}" >Status Biro</TextBlock>
+                    <ComboBox x:Name="cmbBiro" DropDownClosed="cmbBiro_DropDownClosed" Grid.Row="4" Grid.Column="4" Margin="9,15,-69,5" Height="28" />
+
+                    <TextBlock Grid.Row="5" Grid.Column="2" Margin="31,20,0,0" Style="{StaticResource MaterialDesignBody2TextBlock}" >Sub Bagian</TextBlock>
+                    <ComboBox x:Name="cmbSubbagian" Grid.Row="5" Grid.Column="4" Margin="9,15,-69,5" Height="28" />
+
+                    <TextBlock Grid.Row="6" Grid.Column="2" Margin="31,20,0,0" Style="{StaticResource MaterialDesignBody2TextBlock}" >Golongan</TextBlock>
+                    <ComboBox x:Name="cmbGolongan" Grid.Row="6" Grid.Column="4" Margin="9,15,-69,5" Height="28" />
+
+                    <TextBlock Grid.Row="7" Grid.Column="2" Margin="31,20,0,0" Style="{StaticResource MaterialDesignBody2TextBlock}" >Eselon</TextBlock>
+                    <ComboBox x:Name="cmbEselon" Grid.Row="7" Grid.Column="4" Margin="9,15,-69,5" Height="28" />
+
+
+
+                </Grid>
+            </ScrollViewer>
+
+        </GroupBox>
+    </Grid>
+</UserControl>

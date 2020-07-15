@@ -1,0 +1,158 @@
+﻿<UserControl x:Class="rtwin.View.home.home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:rtwin.View.home"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             >
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+
+        <Grid Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="0" x:Name="spIjinHari" Grid.Column="0" Orientation="Horizontal">
+                    <Grid x:Name="cardIjinHari" Margin="0 0 0 10" >
+                        <Rectangle Height="120" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" RadiusX="20" RadiusY="20" Fill="White">
+                            <Rectangle.Effect>
+                                <DropShadowEffect BlurRadius="20" RenderingBias="Quality"/>
+                            </Rectangle.Effect>
+                        </Rectangle>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="70" />
+                            </Grid.RowDefinitions>
+                            <TextBlock  Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22" Margin="0 5 0 0">
+                        Notifikasi Ijin Per Hari
+                            </TextBlock>
+                            <Separator Grid.Row="1" Width="300"/>
+                            <TextBlock x:Name="ijinHari" Grid.Row="2" Margin="40 0 16 0" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="54" >
+                            12
+                            </TextBlock>
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
+                                <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}"  ToolTip="Detail" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="2 0 15 0">
+                                    <materialDesign:PackIcon Kind="Details" Height="24" Width="24" />
+                                </Button>
+
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="0" x:Name="spIjinJam" Grid.Column="1" Orientation="Horizontal">
+                    <Grid x:Name="cardIjinJam" Margin="0 0 0 10" >
+                        <Rectangle Height="120" Width="300" HorizontalAlignment="Center" VerticalAlignment="Top" RadiusX="20" RadiusY="20" Fill="White" Margin="0,5,0,0">
+                            <Rectangle.Effect>
+                                <DropShadowEffect BlurRadius="20"/>
+                            </Rectangle.Effect>
+                        </Rectangle>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="70" />
+                            </Grid.RowDefinitions>
+                            <TextBlock  Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22" Margin="0 5 0 0">
+                        Notifikasi Ijin Per Jam
+                            </TextBlock>
+                            <Separator Grid.Row="1" Width="300"/>
+                            <TextBlock x:Name="ijinPerjam" Grid.Row="2" Margin="40 0 16 0" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="54" >
+                            12
+                            </TextBlock>
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
+                                <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}"  ToolTip="Detail" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="2 0 15 0">
+                                    <materialDesign:PackIcon Kind="Details" Height="24" Width="24" />
+
+                                </Button>
+
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                    <Grid x:Name="cardLembur" Margin="0 0 0 10" >
+                        <Rectangle Height="120" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" RadiusX="20" RadiusY="20" Fill="White">
+                            <Rectangle.Effect>
+                                <DropShadowEffect BlurRadius="20"/>
+                            </Rectangle.Effect>
+                        </Rectangle>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="70" />
+                            </Grid.RowDefinitions>
+                            <TextBlock  Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22" Margin="0 5 0 0">
+                        Notifikasi Lembur
+                            </TextBlock>
+                            <Separator Grid.Row="1" Width="300"/>
+                            <TextBlock x:Name="lembur" Grid.Row="2" Margin="40 0 16 0" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="54" >
+                            12
+                            </TextBlock>
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
+                                <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" ToolTip="Detail" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="2 0 15 0">
+                                    <materialDesign:PackIcon Kind="Details" Height="24" Width="24" />
+                                </Button>
+
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <StackPanel Grid.Row="1" >
+            <Grid>
+                <Rectangle Height="350" Width="1000" Margin="11 0 0 0" HorizontalAlignment="Left" RadiusX="20" RadiusY="20" Fill="White">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="20" RenderingBias="Quality"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <TextBlock Text="Grafik Kehadiran" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" Margin="20 5 0 0"/>
+                <lvc:PieChart Height="300" x:Name="pie" LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}">
+                    <lvc:PieChart.Effect>
+                        <DropShadowEffect BlurRadius="20"/>
+                    </lvc:PieChart.Effect>
+                    <lvc:PieChart.Series>
+                        <lvc:PieSeries Title="Hadir" x:Name="hadir" Values="3" DataLabels="True"
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="BAK" x:Name="bak" Values="4" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="CBS" x:Name="cbs" Values="6" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="CP" x:Name="cp" Values="2" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="CT" x:Name="ct" Values="2" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="DL" x:Name="dl" Values="2" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="PD" x:Name="pd" Values="2" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="S" x:Name="sakit" Values="2" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="SDR" x:Name="sdr" Values="2" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="CPTPLG" x:Name="cptplg" Values="2" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="Telat" x:Name="telat" Values="2" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                    </lvc:PieChart.Series>
+                </lvc:PieChart>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

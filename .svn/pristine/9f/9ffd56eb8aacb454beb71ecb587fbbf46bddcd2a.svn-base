@@ -1,0 +1,182 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using MaterialDesignThemes.Wpf;
+using rtwin.lib;
+using rtwin.View.customDialog;
+using rtwin.Model;
+
+namespace rtwin.View.master.timecard
+{
+    /// <summary>
+    /// Interaction logic for FormAddDataTimecard.xaml
+    /// </summary>
+    public partial class FormAddDataTimecard : UserControl
+    {
+        bool isSqlServer;
+        TextBlock breadcumb;
+        DialogHost dialogHost;
+        Frame frameContent, dialogContent;
+        Image LoadingContent;
+        koneksi kon;
+        string username;
+        string gradeID;
+        public FormAddDataTimecard(bool isSqlServer, TextBlock breadcumb, DialogHost dialogHost, Frame frameContent, Image LoadingContent,Frame dialogContent,string username, string gradeID)
+        {
+            this.isSqlServer = isSqlServer;
+            this.kon = new koneksi(isSqlServer);
+            this.breadcumb = breadcumb;
+            this.dialogHost = dialogHost;
+            this.frameContent = frameContent;
+            this.LoadingContent = LoadingContent;
+            this.dialogContent = dialogContent;
+            this.username = username;
+            this.gradeID = gradeID;
+            InitializeComponent();
+            
+        }
+
+        private void PresetTimePicker_SelectedTimeChanged(object sender, RoutedPropertyChangedEventArgs<DateTime?> e)
+        {
+
+        }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += (o, a) =>
+            {
+
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    this.frameContent.Content = "";
+                    this.LoadingContent.Visibility = Visibility.Visible;
+
+
+                }), null);
+                //Thread.Sleep(new TimeSpan(0, 0, 5));
+                Thread.Sleep(new TimeSpan(0, 0, 1));
+            };
+
+            worker.RunWorkerCompleted += (o, a) =>
+            {
+                this.LoadingContent.Visibility = Visibility.Hidden;
+                //List<dataDetailTimeCard> data=String.;
+                frameContent.Content = new timecard(isSqlServer, breadcumb, dialogHost, frameContent, LoadingContent,dialogContent,username, gradeID);
+
+            };
+            worker.RunWorkerAsync();
+
+        }
+
+        private void Btnsave_Click(object sender, RoutedEventArgs e)
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += (o, a) =>
+            {
+
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    this.lodongSave.Visibility = Visibility.Visible;
+                    
+                }), null);
+                Thread.Sleep(new TimeSpan(0, 0, 1));
+            };
+            worker.DoWork += (o, a) =>
+            {
+
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    saveProcess();
+
+                }), null);
+                Thread.Sleep(new TimeSpan(0, 0, 1));
+            };
+
+            worker.RunWorkerCompleted += (o, a) =>
+            {
+                this.lodongSave.Visibility = Visibility.Hidden;
+               
+
+            };
+            worker.RunWorkerAsync();
+        }
+
+        void saveProcess()
+        {
+            List<statusForm> statusForms = new List<statusForm>();
+            statusForms.Add(new statusForm { formTitel = "Kode Range", formValue = kodeRange.Text });
+            statusForms.Add(new statusForm { formTitel = "Jam Masuk", formValue = jamMasuk.Text.Replace("__:__", "") });
+            statusForms.Add(new statusForm { formTitel = "Jam Pulang", formValue = jamPulang.Text.Replace("__:__", "") });
+            statusForms.Add(new statusForm { formTitel = "Toleransi Telat", formValue = tolTelat.Text });
+            statusForms.Add(new statusForm { formTitel = "Toleransi Pulang", formValue = tolPulang.Text });
+            statusForms.Add(new statusForm { formTitel = "Limit Awal", formValue = limitAwal.Text.Replace("__:__", "") });
+            statusForms.Add(new statusForm { formTitel = "Limit Akhir", formValue = limitAkhir.Text.Replace("__:__", "") });
+            statusForms.Add(new statusForm { formTitel = "Jam Kerja", formValue = jamKerja.Text.Replace("__:__", "") });
+            formValidate cek = new formValidate();
+            string status = cek.validate(statusForms);
+            if (status != "")
+            {
+                dialogContent.Content = new alertDialog(status);
+                dialogHost.IsOpen = true;
+
+            }
+            else
+            {
+                try
+                {
+                    DateTime dt1 = DateTime.ParseExact(jamPulang.Text, "HH:mm", new DateTimeFormatInfo());
+                    DateTime dt2 = DateTime.ParseExact(jamMasuk.Text, "HH:mm", new DateTimeFormatInfo());
+                    DateTime dt3 = DateTime.ParseExact(jamKerja.Text, "HH:mm", new DateTimeFormatInfo());
+                    TimeSpan ts = dt1.Subtract(dt2);
+                    TimeSpan JamIstirahat = ts.Subtract(dt3.TimeOfDay);
+
+                    string query = "INSERT INTO taRange(KODE_RANGE, KODE_ABSEN, JAM_AWAL, JAM_AKHIR, TOL_MASUK, TOL_PULANG, LIMIT_AWAL, LIMIT_AKHIR, JAM_KERJA, JAM_ISTIRAHAT) VALUES ('" + kodeRange.Text + "', '1', '1900-01-01 " + jamMasuk.Text + ":00', '1900-01-01 " + jamPulang.Text + ":00', '" + tolTelat.Text + "','" + tolPulang.Text + "', '1900-01-01 " + limitAwal.Text + ":00', '1900-01-01 " + limitAkhir.Text + ":00', '1900-01-01 " + jamKerja.Text + ":00','1900-01-01 " + JamIstirahat + "')";
+
+                    string message = kon.crudDatabase(query, "Data Berhasil Disimpan", "Data Gagal Disimpan");
+                    if (message == "Data Berhasil Disimpan")
+                    {
+                        kon.createLog(username, "1111", kodeRange.Text);
+                        emptyForm();
+                    }
+                    dialogContent.Content = new alertDialog(message);
+                    dialogHost.IsOpen = true;
+                    
+                }
+                catch (Exception exc)
+                {
+                    dialogContent.Content = new alertDialog(exc.Message);
+                    dialogHost.IsOpen = true;
+                }
+                
+                
+            }
+        }
+        void emptyForm()
+        {
+            kodeRange.Text = "";
+            jamMasuk.Text = "";
+            jamPulang.Text = "";
+            jamKerja.Text = "";
+            jamIstirahat.Text = "";
+            tolPulang.Text = "";
+            tolTelat.Text = "";
+            limitAwal.Text = "";
+            limitAkhir.Text = "";
+        }
+    }
+}

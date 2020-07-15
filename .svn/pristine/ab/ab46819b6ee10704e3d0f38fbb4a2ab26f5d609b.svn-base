@@ -1,0 +1,279 @@
+﻿using MaterialDesignThemes.Wpf;
+using Microsoft.Reporting.WinForms;
+using Newtonsoft.Json;
+using rtwin.dataQuery;
+using rtwin.lib;
+using rtwin.Model;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Globalization;
+
+namespace rtwin.View.Report
+{
+    /// <summary>
+    /// Interaction logic for monthly.xaml
+    /// </summary>
+    public partial class monthly : UserControl
+    {
+        bool isSqlServer;
+        DialogHost dialogHost;
+        Frame frameContent, dialogContent;
+        Image LoadingContent;
+        koneksi con;
+        generateJson js;
+        string json = String.Empty;
+        bool asc = true;
+        int page = 0;
+        int AllDataGrid = 0, HeightScress;
+        TextBlock breadcumb;
+        string queryDelete = "";
+        string username;
+        string actionLog = "";
+        bool dialogSearch;
+        List<comboBoxTemplate> namaDeputi, namaBiro, namaBagian, namaSubbagian, namaJabatan, namaGolongan, namaGrade, namaEselon, namaStatus;
+        DateTime dt = DateTime.Today;
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ReportViewerMonthly_RenderingComplete(object sender, RenderingCompleteEventArgs e)
+        {
+
+        }
+
+        public monthly(bool isSqlServer, TextBlock bredcumb, DialogHost dialogHost, Frame frameContent, Image LoadingContent, Frame dialogContent, string username)
+        {
+            HeightScress = Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Height);
+            this.js = new generateJson(isSqlServer);
+            this.con = new koneksi(isSqlServer);
+            this.isSqlServer = isSqlServer;
+            this.dialogHost = dialogHost;
+            this.frameContent = frameContent;
+            this.LoadingContent = LoadingContent;
+            this.breadcumb = bredcumb;
+            this.dialogContent = dialogContent;
+            this.username = username;
+            bredcumb.Text = "Laporan / Laporan Bulanan";
+            InitializeComponent();
+
+            generateComboboxBln();
+            generateComboboxThn();
+            generateComboBoxDeputi();
+            generateComboBoxJabatan();
+            generateComboBoxGolongan();
+            generateComboBoxGrade();
+            generateComboBoxEselon();
+            generateComboBoxStatus();
+            /*string kodeDeputi = "", kodeBiro = "", kodeBagian = "", kodeSubbagian = "";
+            if (cmbDeputi.SelectedIndex > 0)
+            {
+                kodeDeputi = namaDeputi.Find(x => x.content == (cmbDeputi.SelectedItem as ComboBoxItem).Content.ToString()).name;
+            }
+            if (cmbBiro.SelectedIndex > 0)
+            {
+                kodeBiro = namaBiro.Find(x => x.content == (cmbBiro.SelectedItem as ComboBoxItem).Content.ToString()).name;
+            }
+            if (cmbBagian.SelectedIndex > 0)
+            {
+                kodeBagian = namaBagian.Find(x => x.content == (cmbBagian.SelectedItem as ComboBoxItem).Content.ToString()).name;
+            }
+            if (cmbSubbagian.SelectedIndex > 0)
+            {
+                kodeSubbagian = namaSubbagian.Find(x => x.content == (cmbSubbagian.SelectedItem as ComboBoxItem).Content.ToString()).name;
+            }*/
+        }
+
+        private void generateComboBoxStatus()
+        {
+            List<ComboBox> combo = new List<ComboBox>();
+            combo.Add(cmbStatus);
+            this.namaStatus = JsonConvert.DeserializeObject<List<comboBoxTemplate>>(AriLib.generateComboBox(queryStatusPegawai.getQueryComboStatus, true, combo, isSqlServer, false));
+        }
+
+        private void generateComboBoxEselon()
+        {
+            List<ComboBox> combo = new List<ComboBox>();
+            combo.Add(cmbEselon);
+            this.namaEselon = JsonConvert.DeserializeObject<List<comboBoxTemplate>>(AriLib.generateComboBox(queryEselon.getQueryComboEselon, true, combo, isSqlServer, false));
+        }
+
+        private void generateComboBoxGrade()
+        {
+            List<ComboBox> combo = new List<ComboBox>();
+            combo.Add(cmbGrade);
+            this.namaGrade = JsonConvert.DeserializeObject<List<comboBoxTemplate>>(AriLib.generateComboBox(queryGrid.getQueryComboGrade, true, combo, isSqlServer, false));
+        }
+
+        private void generateComboBoxGolongan()
+        {
+            List<ComboBox> combo = new List<ComboBox>();
+            combo.Add(cmbGolongan);
+            this.namaGolongan = JsonConvert.DeserializeObject<List<comboBoxTemplate>>(AriLib.generateComboBox(queryGolongan.getQueryComboGolongan, true, combo, isSqlServer, false));
+        }
+
+        private void generateComboBoxJabatan()
+        {
+            List<ComboBox> combo = new List<ComboBox>();
+            combo.Add(cmbJabatan);
+            this.namaJabatan = JsonConvert.DeserializeObject<List<comboBoxTemplate>>(AriLib.generateComboBox(queryJabatan.getQueryComboJabatan, true, combo, isSqlServer, false));
+        }
+
+        private void generateComboboxBln()
+        {
+            string month = dt.ToString("mm");
+            var Months = System.Globalization.DateTimeFormatInfo.InvariantInfo.MonthNames;
+            //loop array for add items
+            foreach (string sm in Months)
+            {
+                if (sm != "")
+                    cmbBulan.Items.Add(sm);
+            }
+            //set selected item for display on startup
+            cmbBulan.Text = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month);
+        }
+        private void generateComboboxThn()
+        {
+            string year = dt.ToString("yyyy");
+            int th = Convert.ToInt32(year);
+            cmbTahun.Items.Add(new ComboBoxItem { Content = th - 1 });
+            cmbTahun.Items.Add(new ComboBoxItem { Content = th, IsSelected = true });
+            cmbTahun.Items.Add(new ComboBoxItem { Content = th + 1 });
+        }
+        private void generateComboBoxDeputi()
+        {
+            List<ComboBox> combo = new List<ComboBox>();
+            combo.Add(cmbDeputi);
+            this.namaDeputi = JsonConvert.DeserializeObject<List<comboBoxTemplate>>(AriLib.generateComboBox(queryDeputi.getQueryComboDeputi, true, combo, isSqlServer, false));
+        }
+        private void cmbDeputi_DropDownClosed(object sender, EventArgs e)
+        {
+            //cmbBiro.Items.Clear();
+            //cmbBagian.Items.Clear();
+            //cmbSubbagian.Items.Clear();
+            string text = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
+            if (text != null)
+            {
+                generateComboBoxBiro(namaDeputi.Find(x => x.content == text).name);
+            }
+        }        
+        private void generateComboBoxBiro(string kodeDeputi)
+        {
+            List<ComboBox> combo = new List<ComboBox>();
+            combo.Add(cmbBiro);
+            if (kodeDeputi != "")
+            {
+                this.namaBiro = JsonConvert.DeserializeObject<List<comboBoxTemplate>>(AriLib.generateComboBox(queryBiro.queryComboBiroFilter(kodeDeputi), true, combo, isSqlServer, false));
+            }
+        }
+        private void cmbBiro_DropDownClosed(object sender, EventArgs e)
+        {
+            //cmbBagian.Items.Clear();
+            //cmbSubbagian.Items.Clear();
+            string text = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
+            if (text != null)
+            {
+                generateComboBoxBagian(namaBiro.Find(x => x.content == text).name);
+            }
+        }
+        private void generateComboBoxBagian(string kodeBiro)
+        {
+            List<ComboBox> combo = new List<ComboBox>();
+            combo.Add(cmbBagian);
+            if (kodeBiro != "")
+            {
+                this.namaBagian = JsonConvert.DeserializeObject<List<comboBoxTemplate>>(AriLib.generateComboBox(queryBagian.comboBagianFilter(kodeBiro), true, combo, isSqlServer, false));
+            }
+        }
+        private void cmbBagian_DropDownClosed(object sender, EventArgs e)
+        {
+            //cmbSubbagian.Items.Clear();
+            string text = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
+            if (text != null)
+            {
+                generateComboBoxSubbagian(namaBagian.Find(x => x.content == text).name);
+            }
+        }
+
+        private void generateComboBoxSubbagian(string kodeBagian)
+        {
+            List<ComboBox> combo = new List<ComboBox>();
+            combo.Add(cmbSubbagian);
+            if (kodeBagian != "")
+            {
+                this.namaSubbagian = JsonConvert.DeserializeObject<List<comboBoxTemplate>>(AriLib.generateComboBox(querySubBagian.comboSubbagianFilter(kodeBagian), true, combo, isSqlServer, false));
+            }
+        }
+
+        private void BtnTampilkan_Click(object sender, RoutedEventArgs e)
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+
+            worker.DoWork += (o, a) =>
+            {
+
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    this.frameContent.Content = "";
+                    this.LoadingContent.Visibility = Visibility.Visible;
+
+
+                }), null);
+                //Thread.Sleep(new TimeSpan(0, 0, 5));
+                Thread.Sleep(new TimeSpan(0, 0, 1));
+            };
+
+            worker.RunWorkerCompleted += (o, a) =>
+            {
+                this.LoadingContent.Visibility = Visibility.Hidden;
+                //List<dataDetailTimeCard> data=String.;
+                string data = "";
+                frameContent.Content = new monthlyReport(isSqlServer, breadcumb, dialogHost, frameContent, LoadingContent, dialogContent, username, reload);
+
+            };
+            worker.RunWorkerAsync();
+        }
+        void reload()
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += (o, a) =>
+            {
+
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    this.frameContent.Content = "";
+                    this.LoadingContent.Visibility = Visibility.Visible;
+
+
+                }), null);
+                //Thread.Sleep(new TimeSpan(0, 0, 5));
+                Thread.Sleep(new TimeSpan(0, 0, 1));
+            };
+
+            worker.RunWorkerCompleted += (o, a) =>
+            {
+                this.LoadingContent.Visibility = Visibility.Hidden;
+                frameContent.Content = new monthly(isSqlServer, breadcumb, dialogHost, frameContent, LoadingContent, dialogContent, username);
+
+            };
+            worker.RunWorkerAsync();
+        }
+
+    }
+}

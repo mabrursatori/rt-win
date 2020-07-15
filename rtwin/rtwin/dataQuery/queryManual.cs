@@ -1,0 +1,85 @@
+﻿using rtwin.lib;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace rtwin.dataQuery
+{
+    class queryManual
+    {
+        public static string countDataManual = "SELECT COUNT(NIP) FROM q_Absen";
+        public static string getDataManual(string orderBy,string ascdesc)
+        {
+            return "SELECT " + AriLib.rowNumberQuery(orderBy, ascdesc) + ", NIP, PIN, NAMA, TGL_MASUK, KODE_RANGE, JAM_MASUK, JAM_KELUAR FROM q_Absen";
+        }
+        public static string getDataDetailManual(string nip,string tglMASUK)
+        {
+            return "SELECT NIP, PIN, NAMA, TGL_MASUK, KODE_RANGE, JAM_MASUK, JAM_KELUAR FROM q_Absen Where NIP='" + nip + "' AND TGL_MASUK='"+tglMASUK+"'";
+        }
+        public static string insertDataManual(string nip,string tglMasuk,string jamMasuk,string jamKeluar,string isiManual)
+        {
+            return "INSERT INTO taAbsen(NIP, TGL_MASUK, KODE_ABSEN, KODE_RANGE, JAM_MASUK, JAM_KELUAR, ISI_MANUAL) VALUES ('" + nip + "','" + tglMasuk + "', '1',  dbo.RangeCode('" + nip + "','" + tglMasuk + "'),'" + jamMasuk + "','" + jamKeluar + "','" + isiManual + "')";
+        }
+        public static string updateDataManual(string jamMasuk, string jamKeluar,string nip,string tglMasuk)
+        {
+            return "UPDATE taAbsen SET JAM_MASUK = '" + jamMasuk + "', JAM_KELUAR = '" + jamKeluar + "' WHERE (NIP = '" + nip + "') AND (TGL_MASUK = '" + tglMasuk + "')";
+        }
+        public static string deleteDataManual( string nip, string tglMasuk)
+        {
+            return "DELETE FROM taAbsen WHERE (NIP = '" + nip + "') AND (TGL_MASUK = '" + tglMasuk + "')";
+        }
+        public static string filter(string tglAwal, string tglAkhir,string nip,string kodeDeputi,string kodeBiro )
+        {
+            string temp = "";
+            if(tglAwal!="" && tglAkhir != "")
+            {
+                if (temp == "")
+                {
+                    temp += " WHERE TGL_MASUK>='" + tglAwal + "' AND TGL_MASUK<='" + tglAkhir + "'";
+                }
+                else
+                {
+                    temp += " AND TGL_MASUK>='" + tglAwal + "' AND TGL_MASUK<='" + tglAkhir + "'";
+                }
+                
+            }
+            if (nip != "")
+            {
+                if (temp == "")
+                {
+                    temp += " WHERE NIP='" + nip + "'";
+                }
+                else
+                {
+                    temp += " AND NIP='" + nip + "'";
+                }
+            }
+            if (kodeDeputi != "")
+            {
+                if (temp == "")
+                {
+                    temp += " WHERE KODE_DEPUTI='" + kodeDeputi + "'";
+                }
+                else
+                {
+                    temp += " AND KODE_DEPUTI='" + kodeDeputi + "'";
+                }
+            }
+            if (kodeBiro != "")
+            {
+                if (temp == "")
+                {
+                    temp += " WHERE KODE_BIRO='" + kodeBiro + "'";
+                }
+                else
+                {
+                    temp += " AND KODE_BIRO='" + kodeBiro + "'";
+                }
+            }
+            return temp;
+
+        }
+    }
+}
